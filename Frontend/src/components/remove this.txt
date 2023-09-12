@@ -1,2 +1,2 @@
 Remove this file.
-This just so github would create a folder
+This is just so github would create a folder
