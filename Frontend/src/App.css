@@ -4,17 +4,25 @@
   --grey: #d9d9d9;
 }
 
+/* Navbar */
 #navbar {
   display: flex;
   background-color: var(--DarkBrown);
   color: var(--white);
 }
 
-#searchField {
-  background-color: var(--grey);
-}
 
-#userIcon, #cartIcon {
+#userIcon, #cartIcon, #searchIcon {
   width: 64px;
   height: 70px;
+}
+
+.searchBarContainer {
+  display: flex;
+  background-color: var(--grey);
+  border-radius: 25px;
+}
+
+#searchField {
+  background-color: var(--grey);
 }
