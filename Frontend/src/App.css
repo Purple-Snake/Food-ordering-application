@@ -26,3 +26,9 @@
 #searchField {
   background-color: var(--grey);
 }
+
+/* The menu */
+#theFoodMenuItems {
+  margin: auto;
+  width: 70rem;
+}

@@ -1,16 +1,17 @@
-import Card from "react-bootstrap/Card";
+import cartIcon from "../assets/images/svg/cart-shopping-solid.svg";
 
 function FoodItems(foodItem) {
-  console.log(foodItem.foodItem.picture);
+  console.log(foodItem);
   return (
-    <Card style={{ width: "70rem" }}>
-      <Card.Body>
-        <Card.Img variant="top" src={foodItem.foodItem.picture} />
-        <Card.Title>{foodItem.foodItem.name}</Card.Title>
-        <Card.Text>{foodItem.foodItem.ingredients}</Card.Text>
-        <Card.Link href="#">Card Link</Card.Link>
-      </Card.Body>
-    </Card>
+    <div>
+      <div>
+        <img src={foodItem.foodItem.picture} alt="" />
+      </div>
+      <div ></div>
+      <button>
+        <img src={cartIcon} alt="Add to cart" id="cartIcon" />
+      </button>
+    </div>
   );
 }
 

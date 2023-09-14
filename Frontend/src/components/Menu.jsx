@@ -10,7 +10,7 @@ function Menu() {
       <h2>
         <b>Food group 1</b>
       </h2>
-      <div>{fooditemsjsx}</div>
+      <div id="theFoodMenuItems">{fooditemsjsx}</div>
     </div>
   );
 }
