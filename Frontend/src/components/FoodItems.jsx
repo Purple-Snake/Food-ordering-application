@@ -1,8 +1,9 @@
 
 
-function FoodItems() {
+function FoodItems( foodItem ) {
+    console.log(foodItem);
     return ( 
-        <div>
+        <div key={foodItem.foodItem.id}>
             
         </div>
      );

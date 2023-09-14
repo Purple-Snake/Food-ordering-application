@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "food name 1",
+        "ingredients": "ingredients",
+        "price": 12.99,
+        "foodGroup": "food group 1",
+        "spicyLevel": 3
+    },
+    {
+        "id": 2,
+        "name": "food name2",
+        "ingredients": "ingredients",
+        "price": 12.99,
+        "foodGroup": "food group 1",
+        "spicyLevel": 3
+    },
+    {
+        "id": 3,
+        "name": "food name3",
+        "ingredients": "ingredients",
+        "price": 12.99,
+        "foodGroup": "food group 1",
+        "spicyLevel": 3
+    },
+    {
+        "id": 4,
+        "name": "food name4",
+        "ingredients": "ingredients",
+        "price": 12.99,
+        "foodGroup": "food group 1",
+        "spicyLevel": 3
+    },
+    {
+        "id": 5,
+        "name": "food name5",
+        "ingredients": "ingredients",
+        "price": 12.99,
+        "foodGroup": "food group 1",
+        "spicyLevel": 3
+    },
+    {
+        "id": 6,
+        "name": "food name6",
+        "ingredients": "ingredients",
+        "price": 12.99,
+        "foodGroup": "food group 1",
+        "spicyLevel": 3
+    }
+]
