@@ -10,20 +10,37 @@
 }
 
 /* Navbar */
-#navbar {
+#navBar {
   display: flex;
   background-color: var(--DarkBrown);
   color: var(--white);
+  height: 6.25rem;
 }
 
-.searchBarContainer {
+.navBarItemContainer {
   display: flex;
-  background-color: var(--grey);
-  border-radius: 25px;
+  width: min-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.linkConatainer {
+  display: flex;
+}
+
+.searchForm {
+  display: flex;
+  height: 5rem;
+}
+
+#searchButton {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
 #searchField {
   background-color: var(--grey);
+
 }
 
 /* Menu */
@@ -37,9 +54,20 @@
   width: 70rem;
 }
 
+/* Food Groups */
+.foodGroupButton {
+  background-color: var(--DarkBrown);
+  border-color: var(--DarkBrown);
+  border-radius: 35px;
+  width: 16rem;
+  height: 4rem;
+  font-size: 32px;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
 /* Food item */
 #foodMenuItem {
-  /* background-color: var(--DarkBrown); */
   display: flex;
   padding: 2rem;
   
