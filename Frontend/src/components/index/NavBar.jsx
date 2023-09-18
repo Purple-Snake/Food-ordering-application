@@ -1,6 +1,6 @@
-import userIcon from "../assets/images/svg/user-solid.svg";
-import cartIcon from "../assets/images/svg/cart-shopping-solid.svg";
-import magnifyingGlassIcon from "../assets/images/svg/magnifying-glass-solid.svg";
+import userIcon from "../../assets/images/svg/user-solid.svg";
+import cartIcon from "../../assets/images/svg/cart-shopping-solid.svg";
+import magnifyingGlassIcon from "../../assets/images/svg/magnifying-glass-solid.svg";
 
 function NavBar() {
   return (

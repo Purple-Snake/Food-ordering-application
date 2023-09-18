@@ -1,7 +1,7 @@
 import './App.css'
-import NavBar from './components/NavBar'
-import FoodGroupButtons from './components/FoodGroupButtons'
-import Menu from './components/Menu'
+import NavBar from './components/index/NavBar'
+import FoodGroupButtons from './components/index/FoodGroupButtons'
+import Menu from './components/index/Menu'
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import cartIcon from "../assets/images/svg/cart-shopping-solid.svg";
+import cartIcon from "../../assets/images/svg/cart-shopping-solid.svg";
 
 function FoodItems(foodItem) {
   console.log(foodItem);

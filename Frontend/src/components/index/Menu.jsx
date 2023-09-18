@@ -1,5 +1,5 @@
 import FoodItems from "./FoodItems";
-import { default as foodData } from "../data/placeholderData.json";
+import { default as foodData } from "../../data/placeholderData.json";
 
 function Menu() {
   let fooditemsjsx = foodData.map((food) => {
