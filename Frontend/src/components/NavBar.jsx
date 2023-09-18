@@ -7,15 +7,15 @@ function NavBar() {
     <div id="navbar">
       <h1>TITLE</h1>
       <div className="searchBarContainer">
-        <img src={magnifyingGlassIcon} alt="" id="searchIcon" />
+        <img src={magnifyingGlassIcon} alt="" id="searchIcon" className="icon" />
         <input type="search" id="searchField"></input>
       </div>
       <div>
         <a href="#">
-          <img src={userIcon} alt="User" id="userIcon" />
+          <img src={userIcon} alt="User" id="userIcon" className="icon" />
         </a>
         <a href="#">
-          <img src={cartIcon} alt="Cart" id="cartIcon" />
+          <img src={cartIcon} alt="Cart" id="cartIcon" className="icon"/>
         </a>
       </div>
     </div>
