@@ -11,10 +11,10 @@ function NavBar() {
         <input type="search" id="searchField"></input>
       </div>
       <div>
-        <a href="#">
+        <a href="/userpage">
           <img src={userIcon} alt="User" id="userIcon" className="icon" />
         </a>
-        <a href="#">
+        <a href="/cart">
           <img src={cartIcon} alt="Cart" id="cartIcon" className="icon"/>
         </a>
       </div>
