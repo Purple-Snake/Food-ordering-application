@@ -20,9 +20,13 @@
 .navBarItemContainer {
   display: flex;
   width: min-content;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   vertical-align: middle;
+}
+
+.title {
+  margin-left: 7rem;
+  margin-right: 7rem;
 }
 
 .linkConatainer {
@@ -34,15 +38,6 @@
   height: 5rem;
 }
 
-#searchButton {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-}
-
-#searchField {
-  background-color: var(--grey);
-  font-size: 36px;
-}
 
 /* Menu */
 #menuBackground {
@@ -95,3 +90,4 @@
   width: 12.5rem;
   height: 12.5rem;
 }
+

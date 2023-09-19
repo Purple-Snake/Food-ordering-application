@@ -9,7 +9,7 @@ function NavBar() {
         <a href="/">
           <img src={homeIcon} alt="Home" className="icon" />
         </a>
-        <h1>TITLE</h1>
+        <h1 className="title">TITLE</h1>
         <div className="linkConatainer">
           <a href="/userpage">
             <img src={userIcon} alt="User" id="userIcon" className="icon" />
