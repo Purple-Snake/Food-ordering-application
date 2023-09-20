@@ -1,5 +1,5 @@
 import cartIcon from "../../assets/images/svg/cart-shopping-solid.svg";
-import spicyIcon from "../../assets/images/png/spicy-lvl-placeholder.png";
+import spicyIcon from "../../assets/images/png/spicy-lvl.png";
 
 function FoodItems(foodItem) {
   // console.log(foodItem);
