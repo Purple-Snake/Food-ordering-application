@@ -39,6 +39,17 @@
   height: 5rem;
 }
 
+/* Food Groups */
+.foodGroupButton {
+  background-color: var(--lightBrown);
+  border-color: var(--lightBrown);
+  border-radius: 35px;
+  width: 13rem;
+  height: 3rem;
+  font-size: 32px;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
 
 /* Menu */
 #menuBackground {
@@ -51,17 +62,6 @@
   width: 70rem;
 }
 
-/* Food Groups */
-.foodGroupButton {
-  background-color: var(--lightBrown);
-  border-color: var(--lightBrown);
-  border-radius: 35px;
-  width: 16rem;
-  height: 4rem;
-  font-size: 32px;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
 
 /* Food item */
 #foodMenuItem {
