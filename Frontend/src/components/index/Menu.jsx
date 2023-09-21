@@ -1,15 +1,20 @@
-import FoodItems from "./FoodItems";
+import FoodList from "./FoodItems";
 import { default as foodData } from "../../data/placeholderData.json";
+import _ from "lodash";
 
 function Menu() {
-  let fooditemsjsx = foodData.map((food) => {
-    return <FoodItems key={food.id} foodItem={food} />;
-  });
+  const groupedFood = _.groupBy(foodData, "foodGroup");
+
   return (
     <div>
-      <div id="menuBackground">
-        <div id="theFoodMenuItems">{fooditemsjsx}</div>
-      </div>
+      {Object.keys(groupedFood).map((group) => (
+        <div key={group}>
+          <h2>{group}</h2>
+          <div id="menuBackground">
+            <FoodList foodItems={groupedFood[group]} />
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
