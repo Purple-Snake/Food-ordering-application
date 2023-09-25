@@ -1,11 +1,11 @@
 import cartIcon from "../../assets/images/svg/cart-shopping-solid.svg";
-import spicyIcon from "../../assets/images/svg/spicy-level.svg";
+import spicyIcon from "../../assets/images/svg/pepper-hot-solid.svg";
 
 function FoodItems(foodItems) {
   function checkSpicyLevel(spicyNumber) {
     const spicyLvl = [];
     for (let i = 0; i < spicyNumber; i++) {
-      spicyLvl.push(<img src={spicyIcon} alt="spicy" className="spicyIcon" />);
+      spicyLvl.push(<img src={spicyIcon} alt="spicy!" className="spicyIcon" />);
     }
     return spicyLvl;
   }
@@ -15,7 +15,7 @@ function FoodItems(foodItems) {
       {foodItems.foodItems.map((foodItem) => (
         <div className="foodMenuItem" key={foodItem.id}>
           <div>
-            <img src={foodItem.picture} alt="" className="foodImage" />
+            <img src={foodItem.picture} alt={foodItem.name} className="foodImage" />
           </div>
           <div className="nameContainer">
             <div className="name">

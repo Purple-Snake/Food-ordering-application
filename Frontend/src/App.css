@@ -83,9 +83,10 @@
 }
 
 .spicyIcon {
-  /* change this later */
-  width: 3rem;
-  /* margin: 3px; */
+  /* This the only way I found how to change the colour of an svg that is in an <img> tag, this is stupid. */
+  filter: invert(44%) sepia(89%) saturate(6656%) hue-rotate(350deg) brightness(102%) contrast(113%);
+  width: 1.5rem;
+  margin-left: 1rem;
 }
 
 .ingredients {
