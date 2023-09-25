@@ -1,42 +1,125 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+:root {
+  --DarkBrown: #7D5A50;
+  --lightBrown: #B4846C;
+  --lightPinkBrown: #E5B299;
+  --White: #fff;
+  --Grey: #d9d9d9;
+}
+
+.icon {
+  width: 64px;
+  height: 70px;
+}
+
+/* Navbar */
+.navBar {
+  display: flex;
+  background-color: var(--DarkBrown);
+  color: var(--White);
+  height: 5.50rem;
+}
+
+.navBarItemContainer {
+  display: flex;
+  width: min-content;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.title {
+  margin-left: 7rem;
+  margin-right: 7rem;
+}
+
+.linkConatainer {
+  display: flex;
+}
+
+
+/* Food Group buttons */
+.groupButtons {
+  display: flex;
+  width: min-content;
+  margin: auto;
+}
+
+.foodGroupButton {
+  background-color: var(--lightBrown);
+  border-color: var(--lightBrown);
+  border-radius: 35px;
+  width: 13rem;
+  height: 3rem;
+  font-size: 32px;
+  margin: 4rem 2rem 4rem 2rem;
+}
+
+/* Menu */
+.foodGroup {
+  background-color: var(--lightPinkBrown);
+  border-radius: 25px;
+  font-size: 40px;
+}
+
+.foodGroupTitle {
+  margin-left: 12.5rem;
+}
+
+.menuBackground {
+  background-color: var(--DarkBrown);
+  border-radius: 25px;
+}
+
+.theFoodMenuItems, .menuBackground {
+  margin: auto;
+  width: 70rem;
+}
+
+
+/* Food item */
+.foodMenuItem {
+  display: flex;
   padding: 2rem;
-  text-align: center;
+  
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.name {
+  font-size: 32px;
+  margin-left: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.spicyIcon {
+  /* This the only way I found how to change the colour of an svg that is in an <img> tag, this is stupid. */
+  filter: invert(44%) sepia(89%) saturate(6656%) hue-rotate(350deg) brightness(102%) contrast(113%);
+  width: 1.5rem;
+  margin-left: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.ingredients {
+  font-size: 24px;
+  margin: 0.5rem auto auto 1rem;
 }
 
-.card {
-  padding: 2em;
+.addToCartConatiner {
+  display: flex;
+  margin-left: auto;
 }
 
-.read-the-docs {
-  color: #888;
+.addToCartBtn {
+  height: min-content;
+  background: none;
+  cursor: pointer;
+  margin: auto;
+  border: 0px;
 }
+
+.foodPrice {
+  height: min-content;
+  margin: auto 1rem auto auto;
+  font-size: 32px;
+}
+
+.foodImage {
+  width: 12.5rem;
+  height: 12.5rem;
+}
+
