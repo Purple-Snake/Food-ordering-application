@@ -28,16 +28,15 @@ function FoodItems(foodItems) {
               <i>{foodItem.ingredients}</i>
             </div>
           </div>
-          <div className="addToCart">
+          <div className="addToCartConatiner">
             <div className="foodPrice">
               <b>{foodItem.price}€</b>
             </div>
-            <button>
+            <button className="addToCartBtn">
               <img
                 src={cartIcon}
                 alt="Add to cart"
-                id="addToCartIcon"
-                className="icon"
+                className="icon addToCartIcon"
               />
             </button>
           </div>
