@@ -12,11 +12,11 @@
 }
 
 /* Navbar */
-#navBar {
+.navBar {
   display: flex;
   background-color: var(--DarkBrown);
   color: var(--White);
-  height: 6.25rem;
+  height: 5.50rem;
 }
 
 .navBarItemContainer {
@@ -35,12 +35,14 @@
   display: flex;
 }
 
-.searchForm {
+
+/* Food Group buttons */
+.groupButtons {
   display: flex;
-  height: 5rem;
+  width: min-content;
+  margin: auto;
 }
 
-/* Food Groups */
 .foodGroupButton {
   background-color: var(--lightBrown);
   border-color: var(--lightBrown);
@@ -48,8 +50,7 @@
   width: 13rem;
   height: 3rem;
   font-size: 32px;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin: 4rem 2rem 4rem 2rem;
 }
 
 /* Menu */
@@ -59,25 +60,25 @@
   font-size: 40px;
 }
 
-#menuBackground {
+.menuBackground {
   background-color: var(--DarkBrown);
   border-radius: 25px;
 }
 
-#theFoodMenuItems, #menuBackground {
+.theFoodMenuItems, .menuBackground {
   margin: auto;
   width: 70rem;
 }
 
 
 /* Food item */
-#foodMenuItem {
+.foodMenuItem {
   display: flex;
   padding: 2rem;
   
 }
 
-#name, #foodPrice {
+.name, .foodPrice {
   font-size: 32px;
 }
 
@@ -87,16 +88,16 @@
   /* margin: 3px; */
 }
 
-#ingredients {
+.ingredients {
   font-size: 24px;
 }
 
-#addToCart {
+.addToCart {
   display: flex;
   margin-left: auto;
 }
 
-#foodImage {
+.foodImage {
   width: 12.5rem;
   height: 12.5rem;
 }

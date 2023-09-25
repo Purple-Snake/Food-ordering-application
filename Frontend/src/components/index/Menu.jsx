@@ -12,7 +12,7 @@ function Menu() {
           <h2 className="foodGroup" id={group}>
             {group}
           </h2>
-          <div id="menuBackground">
+          <div className="menuBackground">
             <FoodList foodItems={groupedFood[group]} />
           </div>
         </div>

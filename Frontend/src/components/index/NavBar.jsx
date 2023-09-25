@@ -4,7 +4,7 @@ import homeIcon from "../../assets/images/svg/house-solid.svg"
 
 function NavBar() {
   return (
-    <div id="navBar">
+    <div className="navBar">
       <div className="navBarItemContainer">
         <a href="/">
           <img src={homeIcon} alt="Home" className="icon" />

@@ -8,15 +8,17 @@ function FoodGroupButtons() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-}
+  }
 
   return (
     <div className="foodGroupContainer">
-      {Object.keys(groupedFood).map((group) => (
-        <button key={group} className="foodGroupButton" onClick={() => scrollToFoodGroup(group)}>
-          {group}
-        </button>
-      ))}
+      <div className="groupButtons">
+        {Object.keys(groupedFood).map((group) => (
+          <button key={group} className="foodGroupButton" onClick={() => scrollToFoodGroup(group)}>
+            {group}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

@@ -13,23 +13,23 @@ function FoodItems(foodItems) {
   return (
     <div>
       {foodItems.foodItems.map((foodItem) => (
-        <div id="foodMenuItem" key={foodItem.id}>
+        <div className="foodMenuItem" key={foodItem.id}>
           <div>
-            <img src={foodItem.picture} alt="" id="foodImage" />
+            <img src={foodItem.picture} alt="" className="foodImage" />
           </div>
-          <div id="nameContainer">
-            <div id="name">
+          <div className="nameContainer">
+            <div className="name">
               <b>{foodItem.name}</b>
               <span className="spicyLvlContainer">
                 {checkSpicyLevel(foodItem.spicyLevel)}
               </span>
             </div>
-            <div id="ingredients">
+            <div className="ingredients">
               <i>{foodItem.ingredients}</i>
             </div>
           </div>
-          <div id="addToCart">
-            <div id="foodPrice">
+          <div className="addToCart">
+            <div className="foodPrice">
               <b>{foodItem.price}€</b>
             </div>
             <button>
