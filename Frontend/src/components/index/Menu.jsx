@@ -9,7 +9,9 @@ function Menu() {
     <div>
       {Object.keys(groupedFood).map((group) => (
         <div key={group}>
-          <h2>{group}</h2>
+          <h2 className="foodGroup" id={group}>
+            {group}
+          </h2>
           <div id="menuBackground">
             <FoodList foodItems={groupedFood[group]} />
           </div>
