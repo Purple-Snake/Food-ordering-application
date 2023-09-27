@@ -1,22 +1,22 @@
-@media (min-width: 769px) and (max-width: 1024px) {
+/* @media (min-width: 769px) and (max-width: 1024px) {
 
     /* Navbar */
-    .sidePanel {
+    /* .sidePanel {
         display: flex;
     }
 
     /* Food group buttons */
-    .foodGroupContainer {
+    /* .foodGroupContainer {
         display: none;
     }
 
     /* Menu */
-    .menuBackground {
+    /* .menuBackground {
         margin: auto;
         width: 50rem;
     }
 
     .cartBtn {
-        display: none;
+        /* display: none;
     }
-}
+}  */

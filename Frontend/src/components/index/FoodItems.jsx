@@ -11,16 +11,16 @@ function FoodItems(foodItems) {
   }
   // console.log(foodItems);
   return (
-    <div>
+    <div className="my-5">
       {foodItems.foodItems.map((foodItem) => (
         <div className="foodMenuItem" key={foodItem.id}>
           <div>
             <img src={foodItem.picture} alt={foodItem.name} className="foodImage" />
           </div>
           <div className="nameContainer">
-            <div className="name">
+            <div className="name flex">
               <b>{foodItem.name}</b>
-              <span className="spicyLvlContainer">
+              <span className="spicyLvlContainer flex">
                 {checkSpicyLevel(foodItem.spicyLevel)}
               </span>
             </div>
