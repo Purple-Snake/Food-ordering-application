@@ -26,6 +26,10 @@
   vertical-align: middle;
 }
 
+.sidePanel {
+  display: none;
+}
+
 .title {
   margin-left: 7rem;
   margin-right: 7rem;
@@ -69,7 +73,8 @@
   border-radius: 25px;
 }
 
-.theFoodMenuItems, .menuBackground {
+.theFoodMenuItems,
+.menuBackground {
   margin: auto;
   width: 70rem;
 }
@@ -79,7 +84,7 @@
 .foodMenuItem {
   display: flex;
   padding: 2rem;
-  
+
 }
 
 .name {
@@ -123,3 +128,34 @@
   height: 12.5rem;
 }
 
+
+
+/* @media (min-width: 769px) and (max-width: 1024px) {
+  .sidePanel {
+    display: flex;
+  }
+
+  .menuBackground {
+    margin: auto;
+    width: 50rem;
+  }
+
+  .cartBtn {
+    display: none;
+  }
+} */
+
+@media (max-width: 768px) {
+  .sidePanel {
+    display: flex;
+  }
+
+  .menuBackground {
+    margin: auto;
+    width: 45rem;
+  }
+
+  .cartBtn {
+    display: none;
+  }
+}

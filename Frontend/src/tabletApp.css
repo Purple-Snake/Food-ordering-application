@@ -1,0 +1,22 @@
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* Navbar */
+    .sidePanel {
+        display: flex;
+    }
+
+    /* Food group buttons */
+    .foodGroupContainer {
+        display: none;
+    }
+
+    /* Menu */
+    .menuBackground {
+        margin: auto;
+        width: 50rem;
+    }
+
+    .cartBtn {
+        display: none;
+    }
+}
