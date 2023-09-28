@@ -39,14 +39,14 @@
   font-size: 40px;
 }
 
-.foodGroupTitle {
+/* .foodGroupTitle {
   margin-left: 12.5rem;
-}
+} */
 
-.menuBackground {
+/* .menuBackground {
   background-color: var(--DarkBrown);
   border-radius: 25px;
-}
+} */
 
 /* .theFoodMenuItems,
 .menuBackground {
@@ -56,16 +56,15 @@
 
 
 /* Food item */
-.foodMenuItem {
+/* .foodMenuItem {
   display: flex;
   padding: 2rem;
+} */
 
-}
-
-.name {
+/* .name {
   font-size: 32px;
   margin-left: 1rem;
-}
+} */
 
 .spicyIcon {
   /* This the only way I found how to change the colour of an svg that is in an <img> tag, this is stupid. */
@@ -74,29 +73,29 @@
   margin-left: 1rem;
 }
 
-.ingredients {
+/* .ingredients {
   font-size: 24px;
   margin: 0.5rem auto auto 1rem;
-}
+} */
 
-.addToCartConatiner {
+/* .addToCartConatiner {
   display: flex;
   margin-left: auto;
-}
+} */
 
-.addToCartBtn {
+/* .addToCartBtn {
   height: min-content;
   background: none;
   cursor: pointer;
   margin: auto;
   border: 0px;
-}
+} */
 
-.foodPrice {
+/* .foodPrice {
   height: min-content;
   margin: auto 1rem auto auto;
   font-size: 32px;
-}
+} */
 
 .foodImage {
   width: 12.5rem;

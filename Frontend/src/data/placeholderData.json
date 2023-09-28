@@ -20,7 +20,7 @@
     {
         "id": 3,
         "name": "food name 3",
-        "ingredients": "ingredients",
+        "ingredients": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro magnam, eos iste quod id provident ipsa perspiciatis autem quos similique error a dolor reiciendis voluptatum minus consequatur ratione quo quasi.",
         "picture": "images/png/food-img-placeholder.png",
         "price": 10.99,
         "foodGroup": "food group 1",
