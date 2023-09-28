@@ -11,15 +11,13 @@ function FoodGroupButtons() {
   }
 
   return (
-    <div className="foodGroupContainer">
-      <div className="groupButtons">
+      <div className="groupButtons flex justify-center max-md:flex-col">
         {Object.keys(groupedFood).map((group) => (
           <button key={group} className="foodGroupButton" onClick={() => scrollToFoodGroup(group)}>
             {group}
           </button>
         ))}
       </div>
-    </div>
   );
 }
 

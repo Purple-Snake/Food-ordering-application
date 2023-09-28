@@ -15,30 +15,12 @@
   height: 70px;
 }
 
-/* Navbar */
-/* .navBar {
-  display: flex;
-  background-color: var(--DarkBrown);
-  color: var(--White);
-  height: 5.50rem;
-} */
-
-.sidePanel {
-  display: none;
-}
-
-.title {
-  margin-left: 7rem;
-  margin-right: 7rem;
-}
-
-
 /* Food Group buttons */
-.groupButtons {
+/* .groupButtons {
   display: flex;
   width: min-content;
   margin: auto;
-}
+} */
 
 .foodGroupButton {
   background-color: var(--lightBrown);
@@ -66,11 +48,11 @@
   border-radius: 25px;
 }
 
-.theFoodMenuItems,
+/* .theFoodMenuItems,
 .menuBackground {
   margin: auto;
   width: 70rem;
-}
+} */
 
 
 /* Food item */
