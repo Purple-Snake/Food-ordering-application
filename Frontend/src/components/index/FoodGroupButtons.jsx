@@ -3,6 +3,7 @@ import _ from "lodash";
 
 function FoodGroupButtons() {
   const groupedFood = _.groupBy(foodData, "foodGroup");
+  
   function scrollToFoodGroup(group) {
     const element = document.getElementById(group);
     if (element) {

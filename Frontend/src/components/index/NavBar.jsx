@@ -11,7 +11,7 @@ function NavBar() {
     setSidePanel(!sidePanel)
   }
   return (
-    <div className="navBar w-full h-[100px] flex justify-around items-center bg-[#7D5A50] text-white">
+    <div className="navBar w-full h-[100px] flex justify-around items-center bg-[#7D5A50] text-white relative z-10">
       {/* dekstop navbar */}
       <div className="sidePanelBtn md:hidden z-10" onClick={handleClick}>
         <img src={sidePanelBars} alt="Side panel" className="icon" />
