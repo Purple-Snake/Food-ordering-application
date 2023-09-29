@@ -35,8 +35,10 @@ function NavBar() {
         className={!sidePanel ? "hidden" : "absolute top-0 left-0 w-full h-screen bg-[#7D5A50] flex flex-col justify-center items-center"}>
         <FoodGroupButtons closeSidePanel={handleClick}/>
       </ul>
-      <div className={!sidePanel ? "md:hidden fixed bottom-0 h-10 w-screen bg-[#7D5A50] z-50" : "hidden"}>
-        <a href="/cart">Cart</a>
+      <div className={!sidePanel ? "md:hidden fixed bottom-0 h-14 w-screen bg-[#7D5A50] z-50 flex" : "hidden"}>
+        <a href="/cart" className="m-auto w-4/5 h-2/3 bg-black text-center rounded-md">
+          <button className="text-lg m-auto">Cart</button>
+        </a>
       </div>
     </div>
   );
