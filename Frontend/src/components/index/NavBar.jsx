@@ -9,6 +9,7 @@ function NavBar() {
   const [sidePanel, setSidePanel] = useState(false)
   function handleClick() {
     setSidePanel(!sidePanel)
+    document.body.style.overflow = sidePanel ? 'auto' : 'hidden';
   }
   return (
     <div className="navBar w-full h-[100px] flex justify-around items-center bg-[#7D5A50] text-white relative z-10">
@@ -32,11 +33,11 @@ function NavBar() {
       {/* mobile navbar */}
       <ul
         className={!sidePanel ? "hidden" : "absolute top-0 left-0 w-full h-screen bg-[#7D5A50] flex flex-col justify-center items-center"}>
-        <FoodGroupButtons />
+        <FoodGroupButtons closeSidePanel={handleClick}/>
       </ul>
-      {/* <div className="md:hidden fixed left-0 bottom-0 h-10 w-screen bg-red-700 z-50">
-          <a href="/cart">Cart</a>
-        </div> */}
+      <div className={!sidePanel ? "md:hidden fixed bottom-0 h-10 w-screen bg-[#7D5A50] z-50" : "hidden"}>
+        <a href="/cart">Cart</a>
+      </div>
     </div>
   );
 }

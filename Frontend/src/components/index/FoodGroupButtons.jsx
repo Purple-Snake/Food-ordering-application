@@ -1,11 +1,12 @@
 import { default as foodData } from "../../data/placeholderData.json";
 import _ from "lodash";
 
-function FoodGroupButtons() {
+function FoodGroupButtons({ closeSidePanel }) {
   const groupedFood = _.groupBy(foodData, "foodGroup");
   
   function scrollToFoodGroup(group) {
     const element = document.getElementById(group);
+    closeSidePanel()
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
