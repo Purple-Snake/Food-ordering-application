@@ -1,5 +1,4 @@
 import './App.css'
-import './tabletApp.css'
 import NavBar from './components/index/NavBar'
 import Home from './components/index/Home'
 import { Routes, Route } from 'react-router-dom'
