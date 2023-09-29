@@ -4,7 +4,9 @@ import Menu from "./Menu";
 function Home() {
   return (
     <>
-      <FoodGroupButtons />
+      <div className="max-md:hidden">
+        <FoodGroupButtons />
+      </div>
       <Menu />
     </>
   );
