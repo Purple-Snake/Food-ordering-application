@@ -6,10 +6,13 @@ function FoodGroupButtons({ closeSidePanel }) {
   
   function scrollToFoodGroup(group) {
     const element = document.getElementById(group);
-    closeSidePanel()
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+    HandlecloseSidePanel()
+  }
+  function HandlecloseSidePanel() {
+    closeSidePanel()
   }
 
   return (
