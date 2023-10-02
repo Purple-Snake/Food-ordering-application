@@ -3,6 +3,7 @@ import cartIcon from "../../assets/images/svg/cart-shopping-solid.svg";
 import homeIcon from "../../assets/images/svg/house-solid.svg";
 import sidePanelBars from "../../assets/images/svg/bars-solid.svg";
 import FoodGroupButtons from "./FoodGroupButtons"
+import { Link } from "react-router-dom"
 import { useState } from "react";
 
 function NavBar() {
@@ -17,17 +18,17 @@ function NavBar() {
       <div className="sidePanelBtn md:hidden z-10" onClick={handleClick}>
         <img src={sidePanelBars} alt="Side panel" className="icon" />
       </div>
-      <a href="/">
+      <Link to="/">
         <img src={homeIcon} alt="Home" className="icon" />
-      </a>
+      </Link>
       <h1 className="title text-6xl">TITLE</h1>
       <div className="flex">
-        <a href="/userpage">
+        <Link to="/userpage">
           <img src={userIcon} alt="User" className="userIcon icon" />
-        </a>
-        <a href="/cart" className="cartBtn max-md:hidden">
+        </Link>
+        <Link to="/cart" className="cartBtn max-md:hidden">
           <img src={cartIcon} alt="Cart" className="cartIcon icon" />
-        </a>
+        </Link>
       </div>
 
       {/* mobile navbar */}
