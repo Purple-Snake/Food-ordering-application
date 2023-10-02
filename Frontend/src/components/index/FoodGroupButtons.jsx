@@ -1,7 +1,7 @@
 import { default as foodData } from "../../data/placeholderData.json";
 import _ from "lodash";
 
-function FoodGroupButtons({ closeSidePanel }) {
+function FoodGroupButtons({ closeSidePanel, sidePanel }) {
   const groupedFood = _.groupBy(foodData, "foodGroup");
   
   function scrollToFoodGroup(group) {
@@ -9,10 +9,9 @@ function FoodGroupButtons({ closeSidePanel }) {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    HandlecloseSidePanel()
-  }
-  function HandlecloseSidePanel() {
-    closeSidePanel()
+    if (sidePanel == true) {
+      closeSidePanel()
+    }
   }
 
   return (
