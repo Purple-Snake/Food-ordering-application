@@ -8,6 +8,12 @@
   --lightPinkBrown: #E5B299;
   --White: #fff;
   --Grey: #d9d9d9;
+  --Font-Inter: 'Inter', sans-serif;;
+  --Font-Georgian: 'Noto Serif Georgian', serif;
+}
+
+.title {
+  font-family: var(--Font-Inter);
 }
 
 .icon {
@@ -22,8 +28,9 @@
   border-radius: 35px;
   width: 13rem;
   height: 3rem;
-  font-size: 32px;
-  margin: 4rem 2rem 4rem 2rem;
+  font-size: 31px;
+  margin: 3rem 2rem 3rem 2rem;
+  font-family: var(--Font-Inter)
 }
 
 /* Menu */
@@ -33,6 +40,10 @@
   font-size: 40px;
 }
 
+.foodGroupTitle {
+  font-family: var(--Font-Inter);
+}
+
 .spicyIcon {
   /* This the only way I found how to change the colour of an svg that is in an <img> tag, this is stupid. */
   filter: invert(44%) sepia(89%) saturate(6656%) hue-rotate(350deg) brightness(102%) contrast(113%);
@@ -40,7 +51,16 @@
   margin-left: 1rem;
 }
 
+/* Food Items */
 .foodImage {
   width: 12.5rem;
   height: 12.5rem;
+}
+
+.name {
+  font-family: var(--Font-Inter);
+}
+
+.ingredients  {
+  font-family: var(--Font-Georgian)
 }
