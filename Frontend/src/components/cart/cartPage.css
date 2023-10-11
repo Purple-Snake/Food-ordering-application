@@ -1,0 +1,29 @@
+:root {
+    --Font-Inter: 'Inter', sans-serif;
+    --Font-Georgian: 'Noto Serif Georgian', serif;
+}
+
+.amountNumber {
+    font-family: var(--Font-Inter);
+}
+
+label {
+    font-family: var(--Font-Inter);
+}
+
+.cartTitle {
+    font-family: var(--Font-Inter);
+}
+
+.cartIcons {
+    width: 54px;
+}
+
+.cartFoodImage {
+    width: 6.25rem;
+    height: 6.25rem;
+}
+
+.totalPrice {
+    font-family: var(--Font-Inter);
+}
