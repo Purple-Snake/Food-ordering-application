@@ -23,7 +23,7 @@ function NavBar() {
       </Link>
       <h1 className="title text-6xl">TITLE</h1>
       <div className="flex">
-        <Link to="/userpage">
+        <Link to="/register">
           <img src={userIcon} alt="User" className="userIcon icon" />
         </Link>
         <Link to="/cart" className="cartBtn max-md:hidden">

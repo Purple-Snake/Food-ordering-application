@@ -2,7 +2,9 @@ import "./App.css";
 import "./components/cart/cartPage.css"
 import NavBar from "./components/index/NavBar";
 import Home from "./components/index/Home";
-import CartPage from "./components/cart/CartPage"
+import CartPage from "./components/cart/CartPage";
+import RegisterForm from "./components/login/RegisterFrom";
+import Login from "./components/login/login";
 import { Routes, Route } from "react-router-dom";
 import ShopContextProvider from "./context/ShopContext";
 
@@ -11,9 +13,10 @@ function App() {
     <ShopContextProvider>
       <NavBar />
       <Routes>
-        {/* This is for the cart and login pages, gonna need to finish later. */}
         <Route path="/" element={<Home />} />
-        <Route path='/cart' element={<CartPage/>}/>
+        <Route path="/cart" element={<CartPage/>}/>
+        <Route path="/register" element={<RegisterForm/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </ShopContextProvider>
   );
