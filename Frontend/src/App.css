@@ -12,6 +12,10 @@
   --Font-Georgian: 'Noto Serif Georgian', serif;
 }
 
+.navBar, .sidePanel, .mobileCartBtn {
+  background-color: var(--DarkBrown);
+}
+
 .title {
   font-family: var(--Font-Inter);
 }

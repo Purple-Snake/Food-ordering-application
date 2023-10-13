@@ -1,11 +1,12 @@
+import "./register.css"
 import { Link } from "react-router-dom";
 
 function Login() {
     return ( 
-        <div>
+        <div className="bg-[#B4846C] rounded-md w-1/4 m-20 p-5">
             <h1><b>Log in</b></h1>
-            <p>If you don’t have an account register. You can Register
-                <Link to="/register">Here!</Link>
+            <p>If you don’t have an account register. You can register
+                <Link to="/register"> <b>Here!</b></Link>
             </p>
             <form >
                 <label htmlFor="emailInput">Email</label>
@@ -20,7 +21,7 @@ function Login() {
                 <br />
                 <input type="password" id="passwordInput" required/>
                 <br />
-                <input type="submit" value="Log in"/>
+                <input type="submit" value="Log in" className="bg-[#000] text-white my-5 w-1/2 h-9 rounded-md"/>
             </form>
         </div>
      );
