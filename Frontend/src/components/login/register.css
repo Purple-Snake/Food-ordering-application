@@ -9,7 +9,7 @@ label {
     font-family: var(--Font-Inter);
 }
 
-input {
+.registerInput, .loginInput {
     background-color: var(--Grey);
     border-bottom: 2px solid #000;
     border-radius: 5px;

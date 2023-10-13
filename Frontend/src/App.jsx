@@ -1,5 +1,6 @@
 import "./App.css";
 import "./components/cart/cartPage.css"
+import "./components/index/homePage.css"
 import NavBar from "./components/index/NavBar";
 import Home from "./components/index/Home";
 import CartPage from "./components/cart/CartPage";
