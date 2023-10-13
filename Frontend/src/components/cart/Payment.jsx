@@ -23,7 +23,7 @@ function Payment() {
     console.log("selected self pickup");
   }
   return (
-    <div className="bg-[#B4846C] w-1/4 max-md:w-auto p-5 m-10 rounded-md h-min">
+    <div className="paymentContainer w-1/4 max-md:w-auto p-5 m-10 rounded-md h-min">
       <form action="">
         <label htmlFor="cardNumber">Card Number</label>
         <br />

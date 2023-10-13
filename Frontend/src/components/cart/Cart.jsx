@@ -7,7 +7,7 @@ function Cart() {
   const { cartItems } = useContext(ShopContext);
 
   return (
-    <div className="cartItems bg-[#7D5A50] m-10 w-3/5 max-md:w-auto rounded-md h-min">
+    <div className="cartItems m-10 w-3/5 max-md:w-auto rounded-md h-min">
       <h1 className="cartTitle m-5 text-3xl">Your Cart</h1>
       {foodData.map((item) => {
         if (cartItems[item.id] !== 0) {
