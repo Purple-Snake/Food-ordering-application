@@ -1,36 +1,25 @@
-const express = require("express");
-const userController = require("../controllers/userController");
-// const { route } = require("../app");
+// const express = require("express");
+// const userController = require("../controllers/userController");
+// // const { route } = require("../app");
 
 
-const userRouter = express.Router();
+// const userRouter = express.Router();
 
 
-// change Routers
-// userRouter
-// .route("/")
-// .get(userController.getUsers)
-
-userRouter
-.route("/")
-.post(userController.signup)
-// .get(userController.getHighScore)
-
-userRouter
-.route("/login")
-.post(userController.login)
-
-userRouter
-.route("/logout")
-.get(userController.logout)
-
-userRouter
-.route("/updateHighscore")
-.patch(userController.updateHighScore)
 
 // userRouter
 // .route("/")
-// .get(userController.getUser)
-// .post(userController.postUser)
+// .post(userController.signup)
+// // .get(userController.getHighScore)
 
-module.exports = userRouter;
+// userRouter
+// .route("/login")
+// .post(userController.login)
+
+// userRouter
+// .route("/logout")
+// .get(userController.logout)
+
+
+
+// module.exports = userRouter;
