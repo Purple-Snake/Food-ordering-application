@@ -15,10 +15,6 @@ const userSchema = mongoose.Schema({
     type: String,
     required: [true, "Must have a password"],
   },
-  highScore: {
-    type: Number,
-    default: true
-}
 });
 
 // User model

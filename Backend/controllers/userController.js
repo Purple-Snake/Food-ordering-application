@@ -72,27 +72,7 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.updateHighScore = async (req, res) => {
-  try {
-    const { userName, newHighScore } = req.body;
 
-    let existingUser = await User.findOne({ userName });
-    if (!existingUser) {
-      return res.status(400).send("No user found");
-    }
-    
-    let updatedUser = await User.findOneAndUpdate({ userName }, { $set: { highScore: newHighScore } }, { new: true });
-    if (!updatedUser) {
-      return res.status(400).send("No user found");
-    }
-
-    res.status(200).json({ message: "High score updated successfully", highScore: updatedUser.highScore });
-
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Something went wrong" });
-  }
-};
 
 // LOGOUT
 exports.logout = (req, res) => {
