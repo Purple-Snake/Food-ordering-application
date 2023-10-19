@@ -49,7 +49,7 @@ exports.register = async (req, res) => {
             .send()
         } catch {
             res.status(
-            { errorMessage: "Could not register, please try again later." })
+            { errorMessage: "Could not register, please try again later" })
         }
     });
               
@@ -58,6 +58,52 @@ exports.register = async (req, res) => {
         res.status(500).send();
     }
 }
+
+exports.login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+    
+        // validate
+        if (!email || !password) {
+          return res.status(400).json({ errorMessage: "Please enter all required fields" });
+        }
+    
+        const existingUser = await User.findOne({ email });
+        if (!existingUser) {
+          return res.status(401).json({ errorMessage: "Wrong email or password" });
+        }
+    
+        const passwordCorrect = await bcrypt.compare(
+          password,
+          existingUser.password
+        );
+
+        if (!passwordCorrect) {
+          return res.status(401).json({ errorMessage: "Wrong email or password"});
+        }
+        
+        const token = JWT.sign(
+            {
+                user: existingUser._id,
+            }, process.env.JWT_Secret
+            )
+            res.cookie("token", token, {
+                httpOnly: true
+            })
+            .send()
+      } catch {
+        res.status(500).json({message: "Could not login, please try again later."});
+      }
+    };
+
+    exports.logout = (req, res) => {
+          res
+            .cookie("token", "", {
+              httpOnly: true,
+              expires: new Date(0),
+            })
+            .send();
+        };
 
 // // SIGNUP
 // exports.signup = (req, res) => {

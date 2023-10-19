@@ -19,6 +19,6 @@ app.use(
 );
 
 // // Router
-app.use("/api/register", userRouter)
+app.use("/api", userRouter)
 
 module.exports = app;

@@ -5,17 +5,17 @@ const userController = require("../controllers/userController");
 const userRouter = express.Router();
 
 userRouter
-.route("/")
+.route("/register")
 .post(userController.register)
 
 
-// userRouter
-// .route("/login")
-// .post(userController.login)
+userRouter
+.route("/login")
+.post(userController.login)
 
-// userRouter
-// .route("/logout")
-// .get(userController.logout)
+userRouter
+.route("/logout")
+.get(userController.logout)
 
 
 // userRouter.post("/registration", (req, res) => {

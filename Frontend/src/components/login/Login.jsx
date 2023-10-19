@@ -12,10 +12,6 @@ function Login() {
                 <label htmlFor="emailInput">Email</label>
                 <br />
                 <input type="email" id="emailInput" className="loginInput" required/>
-                <br />
-                <label htmlFor="userNameInput">User name</label>
-                <br />
-                <input type="text" id="userNameInput" className="loginInput" required/>
                 <br />  
                 <label htmlFor="passwordInput">Password</label>
                 <br />
