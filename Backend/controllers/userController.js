@@ -36,16 +36,17 @@ exports.register = async (req, res) => {
                 });
 
             // Save created user
-            createdUser.save().then(
-                res.status(201).json({ message: "User succesfully created" })
-            )
+            createdUser.save()
 
             const token = JWT.sign(
             {
                 user: createdUser._id,
             }, process.env.JWT_Secret
             )
-            console.log(token);
+            res.cookie("token", token, {
+                httpOnly: true
+            })
+            .send()
         } catch {
             res.status(
             { errorMessage: "Could not register, please try again later." })
