@@ -8,6 +8,9 @@ import RegisterForm from "./components/login/RegisterFrom";
 import Login from "./components/login/login";
 import { Routes, Route } from "react-router-dom";
 import ShopContextProvider from "./context/ShopContext";
+import axios from "axios";
+
+axios.defaults.withCredentials = true
 
 function App() {
   return (

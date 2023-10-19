@@ -1,21 +1,22 @@
-// const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 
-// function auth(req, res, next) {
-//   try {
-//     //reikalingas priedas cookie parser, turi būti įrašytas į app.js
-//     const token = req.cookies.token;
-//     // console.log(token);
-//     if (!token) {
-//       res.status(401).json({ error: "Unauthorized" });
-//     } else {
-//       const verified = jwt.verify(token, "superSecretCode");
-//       req.userData = verified;
-//     }
-//     next();
-//   } catch (err) {
-//     console.log(err);
-//     res.status(401).json({ error: "Unauthorized" });
-//   }
-// }
+// Checks if user is logged in
+// Doesn't work for now ¯\_(ツ)_/¯
 
-// module.exports = auth;
+function auth(req, res, next) {
+  try {
+    const token = req.cookies.token;
+    if (!token) {
+      res.status(401).json({ error: "Unauthorized" });
+    }
+
+      const verified = jwt.verify(token, process.env.JWT_Secret);
+      req.user = verified.user;
+
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({ error: "Unauthorized" });
+  }
+}
+
+module.exports = auth;
