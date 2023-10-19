@@ -1,5 +1,34 @@
-// const User = require("../models/userModel");
+const User = require("../models/userModel");
 // const bcrypt = require("bcryptjs");
+
+exports.register = async (req, res) => {
+    try {
+        const { email, userName, password, passwordVerify } = req.body;
+
+        // Validation
+
+        if (!email || !userName || !password || !passwordVerify ) {
+            return res.status(400).json({errorMessage: "Please enter all required fields"})
+        }
+
+        if (password.length < 8) {
+            return res.status(400).json({errorMessage: "Please enter a password of at least 8 characters"})
+        }
+
+        if (password !== passwordVerify) {
+            return res.status(400).json({errorMessage: "Please enter the same password twice"})
+        }
+
+        const existingUser = await User.findOne( {email: email} );
+        
+        if (existingUser) {
+            return res.status(400).json({errorMessage: "An account with this email already exists"})
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send();
+    }
+}
 
 // // SIGNUP
 // exports.signup = (req, res) => {

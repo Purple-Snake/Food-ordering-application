@@ -1,16 +1,13 @@
-// const express = require("express");
-// const userController = require("../controllers/userController");
-// // const { route } = require("../app");
+const express = require("express")
+const userController = require("../controllers/userController");
+// const { route } = require("../app");
 
+const userRouter = express.Router();
 
-// const userRouter = express.Router();
+userRouter
+.route("/")
+.post(userController.register)
 
-
-
-// userRouter
-// .route("/")
-// .post(userController.signup)
-// // .get(userController.getHighScore)
 
 // userRouter
 // .route("/login")
@@ -21,5 +18,9 @@
 // .get(userController.logout)
 
 
+// userRouter.post("/registration", (req, res) => {
+//     console.log(req.body)
+// })
 
-// module.exports = userRouter;
+
+module.exports = userRouter;

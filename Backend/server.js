@@ -4,7 +4,8 @@ const dotenv = require("dotenv")
 
 dotenv.config()
 
-const app = express()
+const app = require("./app")
+
 
 // start server
 const port = process.env.PORT || 3000;
