@@ -1,5 +1,6 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
+const JWT = require("jsonwebtoken")
 
 exports.register = async (req, res) => {
     try {
@@ -38,6 +39,13 @@ exports.register = async (req, res) => {
             createdUser.save().then(
                 res.status(201).json({ message: "User succesfully created" })
             )
+
+            const token = JWT.sign(
+            {
+                user: createdUser._id,
+            }, process.env.JWT_Secret
+            )
+            console.log(token);
         } catch {
             res.status(
             { errorMessage: "Could not register, please try again later." })
