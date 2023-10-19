@@ -1,5 +1,5 @@
 const User = require("../models/userModel");
-// const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
 exports.register = async (req, res) => {
     try {
@@ -8,22 +8,42 @@ exports.register = async (req, res) => {
         // Validation
 
         if (!email || !userName || !password || !passwordVerify ) {
-            return res.status(400).json({errorMessage: "Please enter all required fields"})
+            return res.status(400).json({ errorMessage: "Please enter all required fields" })
         }
 
         if (password.length < 8) {
-            return res.status(400).json({errorMessage: "Please enter a password of at least 8 characters"})
+            return res.status(400).json({ errorMessage: "Please enter a password of at least 8 characters" })
         }
 
         if (password !== passwordVerify) {
-            return res.status(400).json({errorMessage: "Please enter the same password twice"})
+            return res.status(400).json({ errorMessage: "Please enter the same password twice" })
         }
 
         const existingUser = await User.findOne( {email: email} );
         
         if (existingUser) {
-            return res.status(400).json({errorMessage: "An account with this email already exists"})
+            return res.status(400).json({ errorMessage: "An account with this email already exists" })
         }
+
+        // Hash creation
+        bcrypt.hash(password, 10, function(err, hash) {
+            try {
+            const createdUser = new User({
+                email,
+                userName,
+                password: hash,
+                });
+
+            // Save created user
+            createdUser.save().then(
+                res.status(201).json({ message: "User succesfully created" })
+            )
+        } catch {
+            res.status(
+            { errorMessage: "Could not register, please try again later." })
+        }
+    });
+              
     } catch (error) {
         console.error(error);
         res.status(500).send();
