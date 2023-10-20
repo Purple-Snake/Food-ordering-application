@@ -4,9 +4,12 @@ import homeIcon from "../../assets/images/svg/house-solid.svg";
 import sidePanelBars from "../../assets/images/svg/bars-solid.svg";
 import FoodGroupButtons from "./FoodGroupButtons"
 import { Link } from "react-router-dom"
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 
 function NavBar() {
+  const { loggedIn } = useContext(AuthContext)
+
   const [sidePanel, setSidePanel] = useState(false)
   function handleClick() {
     setSidePanel(!sidePanel)
@@ -26,9 +29,11 @@ function NavBar() {
         <Link to="/register">
           <img src={userIcon} alt="User" className="userIcon icon" />
         </Link>
+        {loggedIn &&
         <Link to="/cart" className="cartBtn max-md:hidden">
           <img src={cartIcon} alt="Cart" className="cartIcon icon" />
         </Link>
+        }
       </div>
 
       {/* mobile navbar */}

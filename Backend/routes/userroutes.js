@@ -19,7 +19,7 @@ userRouter
 .get(userController.logout)
 
 userRouter
-.route("/getUser")
-.get(userController.getUser, auth)
+.route("/loggedIn")
+.get(userController.loggedIn)
 
 module.exports = userRouter;

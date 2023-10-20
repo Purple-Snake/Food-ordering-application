@@ -1,7 +1,6 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const JWT = require("jsonwebtoken")
-const auth = require("../middleware/auth")
 
 exports.register = async (req, res) => {
     try {
@@ -106,18 +105,18 @@ exports.login = async (req, res) => {
         .send();
         };
 
-exports.getUser = (req, res) => {
+exports.loggedIn = (req, res) => {
     try {
-        const { email } = req.body;
+        const token = req.cookies.token;
 
-        const existingUser = User.findOne({ email });
-        if (!existingUser) {
-            return res.status(401).json({ errorMessage: "Wrong email or password" });
+        if (!token) {
+            res.json(false)
         }
 
-        res.status(200).json({message: "it worked"})
-        
-    } catch (error) {
-        console.log(error);
+        JWT.verify(token, process.env.JWT_Secret)
+
+        res.send(true)
+    } catch {
+        res.json(false)
     }
 }
