@@ -1,46 +1,95 @@
-import "./register.css"
+import "./register.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios"
+import axios from "axios";
 
 function Login() {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    async function login(e) {
-        e.preventDefault();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [errorPanel, setErrorPanel] = useState(false);
 
-        try {
-            const registerData = {
-                email,
-                password
-            };
+  async function login(e) {
+    e.preventDefault();
 
-            await axios.post("http://localhost:3000/api/login", registerData)
+    try {
+      const registerData = {
+        email,
+        password,
+      };
 
-        } catch (err) {
-            console.log(err);
-        }
+      await axios
+        .post("http://localhost:3000/api/login", registerData)
+        .then((response) => {
+          if (response.status === 200) {
+            return (window.location.href = "http://localhost:5173/");
+          }
+        });
+    } catch (error) {
+      if (error.response) {
+        setErrorMessage(error.response.data.errorMessage);
+        setErrorPanel(true);
+      }
     }
-    return ( 
-        <div className="login rounded-md w-1/4 m-20 p-5">
-            <h1><b>Log in</b></h1>
-            <p>If you don’t have an account register. You can register
-                <Link to="/register"> <b>Here!</b></Link>
-            </p>
-            <form onSubmit={login}>
-                <label htmlFor="emailInput">Email</label>
-                <br />
-                <input type="email" id="emailInput" className="loginInput" onChange={(e) => setEmail(e.target.value)} defaultValue={email} required/>
-                <br />  
-                <label htmlFor="passwordInput">Password</label>
-                <br />
-                <input type="password" id="passwordInput" className="loginInput" onChange={(e) => setPassword(e.target.value)} defaultValue={password} required/>
-                <br />
-                <button type="submit" className="bg-[#000] text-white my-5 w-1/2 h-9 rounded-md">logIn</button>
-            </form>
+  }
+  return (
+    <>
+    <div className="relative">
+      <div className="login rounded-md w-1/4 m-20 p-5">
+        <h1>
+          <b>Log in</b>
+        </h1>
+        <p>
+          If you don’t have an account register. You can register
+          <Link to="/register">
+            {" "}
+            <b>Here!</b>
+          </Link>
+        </p>
+        <form onSubmit={login}>
+          <label htmlFor="emailInput">Email</label>
+          <br />
+          <input
+            type="email"
+            id="emailInput"
+            className="loginInput"
+            onChange={(e) => setEmail(e.target.value)}
+            defaultValue={email}
+            required
+          />
+          <br />
+          <label htmlFor="passwordInput">Password</label>
+          <br />
+          <input
+            type="password"
+            id="passwordInput"
+            className="loginInput"
+            onChange={(e) => setPassword(e.target.value)}
+            defaultValue={password}
+            required
+          />
+          <br />
+          <button
+            type="submit"
+            className="bg-[#000] text-white my-5 w-1/2 h-9 rounded-md"
+          >
+            logIn
+          </button>
+        </form>
+      </div>
+      {errorMessage && (
+        <div
+          className={`error-panel w-1/4 top-0 left-20 p-5 rounded-md absolute ${
+            errorPanel ? "active" : ""
+          }`}
+        >
+          {errorMessage}
         </div>
-     );
+      )}
+      </div>
+    </>
+  );
 }
 
 export default Login;

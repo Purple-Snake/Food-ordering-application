@@ -92,7 +92,7 @@ exports.login = async (req, res) => {
             })
             .send()
       } catch {
-        res.status(500).json({message: "Could not login, please try again later."});
+        res.status(500).json({ errorMessage: "Could not login, please try again later."});
       }
     };
 
