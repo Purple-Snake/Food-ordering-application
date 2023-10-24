@@ -1,11 +1,16 @@
 import cartIcon from "../../assets/images/svg/cart-shopping-solid.svg";
 import spicyIcon from "../../assets/images/svg/pepper-hot-solid.svg";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
+import Modal from "./Modal";
 import { ShopContext } from "../../context/ShopContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/authContext";
 
 function FoodItems({ foodItems }) {
-  const {addToCart} = useContext(ShopContext)
+  const { addToCart } = useContext(ShopContext);
+  const { loggedIn } = useContext(AuthContext);
+
+  const [modalState, setModalState] = useState(false);
 
   function checkSpicyLevel(spicyNumber) {
     const spicyLvl = [];
@@ -14,13 +19,16 @@ function FoodItems({ foodItems }) {
     }
     return spicyLvl;
   }
-  // console.log(foodItems);
   return (
     <>
       {foodItems.map((foodItem) => (
         <div className="foodMenuItem md:flex p-10" key={foodItem.id}>
           <div>
-            <img src={foodItem.picture} alt={foodItem.name} className="foodImage rounded-md max-md:w-full" />
+            <img
+              src={foodItem.picture}
+              alt={foodItem.name}
+              className="foodImage rounded-md max-md:w-full"
+            />
           </div>
           <div className="nameContainer">
             <div className="name flex text-3xl m-1">
@@ -37,13 +45,30 @@ function FoodItems({ foodItems }) {
             <div className="foodPrice text-3xl items-center">
               <b>{foodItem.price}€</b>
             </div>
-            <button className="addToCartBtn" onClick={() => addToCart(foodItem.id)}>
-              <img
-                src={cartIcon}
-                alt="Add to cart"
-                className="icon addToCartIcon"
-              />
-            </button>
+            {loggedIn && (
+              <button
+                className="addToCartBtn"
+                onClick={() => addToCart(foodItem.id)}
+              >
+                <img
+                  src={cartIcon}
+                  alt="Add to cart"
+                  className="icon addToCartIcon"
+                />
+              </button>
+            )}
+            {!loggedIn && (
+              <div onClick={() => setModalState(true)}>
+                <img
+                  src={cartIcon}
+                  alt="Add to cart"
+                  className="icon addToCartIcon"
+                />
+              </div>
+              )}
+              {modalState && 
+                <Modal setModalState={setModalState} />
+              }
           </div>
         </div>
       ))}
