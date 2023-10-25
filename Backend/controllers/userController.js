@@ -110,12 +110,12 @@ exports.loggedIn = (req, res) => {
         const token = req.cookies.token;
 
         if (!token) {
-            res.json(false)
+            return res.json(false)
         }
 
         JWT.verify(token, process.env.JWT_Secret)
 
-        res.send(true)
+         return res.send(true)
     } catch {
         res.json(false)
     }
