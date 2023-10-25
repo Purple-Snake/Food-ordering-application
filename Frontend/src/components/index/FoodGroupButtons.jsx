@@ -1,8 +1,7 @@
-import { default as foodData } from "../../data/placeholderData.json";
-import _ from "lodash";
+import { useContext } from "react";
+import { MenuContext } from "../../context/MenuContext";
 
 function FoodGroupButtons({ closeSidePanel, sidePanel }) {
-  const groupedFood = _.groupBy(foodData, "foodGroup");
   
   function scrollToFoodGroup(group) {
     const element = document.getElementById(group);
@@ -13,6 +12,8 @@ function FoodGroupButtons({ closeSidePanel, sidePanel }) {
       closeSidePanel()
     }
   }
+
+  const { groupedFood } = useContext(MenuContext)
 
   return (
       <div className="groupButtons flex justify-center max-md:flex-col">

@@ -13,7 +13,7 @@ function NavBar() {
   const { getLoggedIn, loggedIn } = useContext(AuthContext);
 
   async function logOut() {
-    await axios.get("http://localhost:3000/api/logout")
+    await axios.get("http://localhost:3000/auth/logout")
     getLoggedIn()
   }
 

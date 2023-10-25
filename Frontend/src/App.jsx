@@ -10,6 +10,7 @@ import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import ShopContextProvider from "./context/ShopContext";
 import { AuthContext } from "./context/authContext";
+import MenuContextProvider from "./context/MenuContext";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
@@ -18,6 +19,7 @@ function App() {
   const { loggedIn } = useContext(AuthContext)
   return (
       <ShopContextProvider>
+        <MenuContextProvider>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -27,6 +29,7 @@ function App() {
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+        </MenuContextProvider>
       </ShopContextProvider>
   );
 }

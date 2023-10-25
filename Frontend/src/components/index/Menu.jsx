@@ -1,10 +1,10 @@
 import FoodList from "./FoodItems";
-import { default as foodData } from "../../data/placeholderData.json";
-import _ from "lodash";
+import { useContext } from "react";
+import { MenuContext } from "../../context/MenuContext";
 
 function Menu() {
-  const groupedFood = _.groupBy(foodData, "foodGroup");
-
+  const { groupedFood } = useContext(MenuContext)
+  
   return (
     <>
       {Object.keys(groupedFood).map((group) => (

@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const userRouter = require("./routes/userRoutes");
+const menuRouter = require("./routes/menuRoutes");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
@@ -19,6 +20,7 @@ app.use(
 );
 
 // // Router
-app.use("/api", userRouter)
+app.use("/menu", menuRouter)
+app.use("/auth", userRouter)
 
 module.exports = app;

@@ -9,7 +9,7 @@ export const AuthContextProvider = ({ children }) => {
     const [loggedIn, setLoggedIn] = useState(undefined);
 
     async function getLoggedIn() {
-        const loggedInResponse = await axios.get("http://localhost:3000/api/loggedIn")
+        const loggedInResponse = await axios.get("http://localhost:3000/auth/loggedIn")
         setLoggedIn(loggedInResponse.data)
     }
 

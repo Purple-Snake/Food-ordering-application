@@ -20,7 +20,7 @@ function Login() {
       };
 
       await axios
-        .post("http://localhost:3000/api/login", registerData)
+        .post("http://localhost:3000/auth/login", registerData)
         .then((response) => {
           if (response.status === 200) {
             return (window.location.href = "http://localhost:5173/");

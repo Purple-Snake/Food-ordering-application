@@ -24,7 +24,7 @@ function RegisterFrom() {
       };
 
       await axios
-        .post("http://localhost:3000/api/register", registerData)
+        .post("http://localhost:3000/auth/register", registerData)
         .then((response) => {
           if (response.status === 200) {
             return (window.location.href = "http://localhost:5173/");
