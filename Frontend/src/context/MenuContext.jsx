@@ -14,7 +14,6 @@ export const MenuContextProvider = ({ children }) => {
       foodData = await axios.get("http://localhost:3000/menu/getMenu")
       const grouped = _.groupBy(foodData.data, "foodGroup");
       setGroupedFood(grouped)
-      console.log(groupedFood);
     }
     getMenu()
   }, [])
