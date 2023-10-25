@@ -104,13 +104,12 @@ function RegisterFrom() {
           </form>
         </div>
 
-        {errorMessage && (
+
           <div
             className={`error-panel w-1/4 top-0 left-20 p-5 rounded-md absolute ${
               errorPanel ? "active" : ""}`}>
             {errorMessage}
           </div>
-        )}
       </div>
     </>
   );

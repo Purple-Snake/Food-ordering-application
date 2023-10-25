@@ -24,7 +24,7 @@ export const ShopContextProvider = ({children}) => {
                     totalAmount += cartItems[item] * itemInfo.price
                 }
             }
-            return totalAmount
+            return totalAmount.toFixed(2)
         }
 
         const addToCart = (itemId) => {
