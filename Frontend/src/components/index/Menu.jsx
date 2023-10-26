@@ -1,9 +1,9 @@
 import FoodList from "./FoodItems";
 import { useContext } from "react";
-import { MenuContext } from "../../context/MenuContext";
+import { ShopContext } from "../../context/ShopContext";
 
 function Menu() {
-  const { groupedFood } = useContext(MenuContext)
+  const { groupedFood } = useContext(ShopContext)
   
   return (
     <>

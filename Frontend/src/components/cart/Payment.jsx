@@ -42,10 +42,14 @@ function Payment() {
         <input type="radio" id="selfPickup" name="deliveryMethod" onChange={handleChangeSelfPickup} value={selfPickUp == false}/>
         <span>Self Pickup</span>
         <div className={delivery ? "" : "hidden"}>
-          <input type="text" placeholder="Address" className="bg-[#D9D9D9] rounded-md border-2 border-black" />
+          <input type="text" placeholder="Address" className="bg-[#D9D9D9] rounded-md border-2 border-black p-2 m-1"/>
         </div>
         <div className={selfPickUp ? "" : "hidden"}>
-          Address of food place
+          <select name="locations" id="locations" className="bg-[#D9D9D9] rounded-md border-2 border-black p-2 m-1">
+            <option value="location 1">location 1</option>
+            <option value="location 2">location 2</option>
+            <option value="location 3">location 3</option>
+          </select>
         </div>
         <div className="mt-5">
           <span className="totalPrice text-xl">Total: {totalAmount}€</span>

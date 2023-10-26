@@ -22,7 +22,7 @@ label {
     z-index: 1;
     color: #fff;
     transform: translateX(0);
-    transition: margin-left 1s;
+    transition: transform 1s;
 }
   
 .error-panel.active {
