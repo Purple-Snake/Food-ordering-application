@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
-import { MenuContext } from "../../context/MenuContext";
+import { ShopContext } from "../../context/ShopContext";
 
 function FoodGroupButtons({ closeSidePanel, sidePanel }) {
   
@@ -14,7 +14,7 @@ function FoodGroupButtons({ closeSidePanel, sidePanel }) {
     }
   }
 
-  const { groupedFood } = useContext(MenuContext)
+  const { groupedFood } = useContext(ShopContext)
 
   return (
       <div className="groupButtons flex justify-center max-md:flex-col">
