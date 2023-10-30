@@ -12,7 +12,7 @@ async function getTheMenu() {
     try {
         const response = await axios.get("http://localhost:3000/menu/getMenu")
         menuData = response.data
-            for (let i = 0; i < menuData.length + 1; i++) {
+            for (let i = 0; i < menuData.length; i++) {
                 cart[menuData[i].name] = 0
             }
     } catch (error) {
