@@ -52,7 +52,6 @@ export const ShopContextProvider = ({children}) => {
         }
 
         const contextValue = {cartItems, addToCart, removeFromCart, getTotalAmount, groupedFood, menuData}
-        console.log(cartItems);
 
     return ( <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider> );
 }
