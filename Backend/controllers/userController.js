@@ -41,6 +41,7 @@ exports.register = async (req, res) => {
             const token = JWT.sign(
             {
                 user: createdUser._id,
+                userName: createdUser.userName,
             }, process.env.JWT_Secret
             )
             res.cookie("token", token, {
@@ -85,6 +86,7 @@ exports.login = async (req, res) => {
         const token = JWT.sign(
             {
                 user: existingUser._id,
+                userName: existingUser.userName,
             }, process.env.JWT_Secret
             )
             res.cookie("token", token, {
@@ -94,16 +96,16 @@ exports.login = async (req, res) => {
       } catch {
         res.status(500).json({ errorMessage: "Could not login, please try again later."});
       }
-    };
+};
 
-    exports.logout = (req, res) => {
-        res
-        .cookie("token", "", {
-            httpOnly: true,
-            expires: new Date(0),
-        })
-        .send();
-        };
+exports.logout = (req, res) => {
+    res
+    .cookie("token", "", {
+        httpOnly: true,
+        expires: new Date(0),
+    })
+    .send();
+};
 
 exports.loggedIn = (req, res) => {
     try {

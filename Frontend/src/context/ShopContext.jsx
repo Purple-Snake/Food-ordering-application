@@ -13,7 +13,7 @@ async function getTheMenu() {
         const response = await axios.get("http://localhost:3000/menu/getMenu")
         menuData = response.data
             for (let i = 0; i < menuData.length + 1; i++) {
-                cart[i] = 0
+                cart[menuData[i].name] = 0
             }
     } catch (error) {
         console.error("Error fetching menu data from the server");
@@ -34,24 +34,25 @@ export const ShopContextProvider = ({children}) => {
 
         const getTotalAmount  = () => {
             let totalAmount = 0
-            for (const item in cartItems) {
-                if (cartItems[item] > 0) {
-                    let itemInfo = menuData.find((product) => product.id === Number(item))
-                    totalAmount += cartItems[item] * itemInfo.price
+            for (const foodName in cartItems) {
+                if (cartItems[foodName ] > 0) {
+                    let itemInfo = menuData.find((product) => product.name === foodName)
+                    totalAmount += cartItems[foodName] * itemInfo.price
                 }
             }
             return totalAmount.toFixed(2)
         }
 
-        const addToCart = (itemId) => {
-            setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + 1}));
+        const addToCart = (foodName) => {
+            setCartItems((prev) => ({...prev, [foodName]: prev[foodName] + 1}));
         }
 
-        const removeFromCart = (itemId) => {
-            setCartItems((prev) => ({...prev, [itemId]: prev[itemId] - 1}));
+        const removeFromCart = (foodName) => {
+            setCartItems((prev) => ({...prev, [foodName]: prev[foodName] - 1}));
         }
 
         const contextValue = {cartItems, addToCart, removeFromCart, getTotalAmount, groupedFood, menuData}
+        console.log(cartItems);
 
     return ( <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider> );
 }
