@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 
 // Order schema
 const orderSchema = new mongoose.Schema({
-    cartItems: {
+    userName: {
+        type: String
+    },
+    filteredCartItems: {
         type: Object,
         required: [true, "Must have an menu item"],
     },
