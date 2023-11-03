@@ -26,8 +26,15 @@ exports.submitOrder = async (req, res) => {
         }
       }
 
+      let orderId = ""
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      for (let i = 0; i < 5; i++) {
+        orderId += characters.charAt(Math.floor(Math.random() * characters.length))
+      }
+
     if (delivery == true) {
       const order = new Order({
+        orderId,
         userName,
         filteredCartItems,
         totalAmount,
@@ -40,6 +47,7 @@ exports.submitOrder = async (req, res) => {
 
     if (selfPickUp == true) {
       const order = new Order({
+        orderId,
         userName,
         filteredCartItems,
         totalAmount,
@@ -54,5 +62,14 @@ exports.submitOrder = async (req, res) => {
   })
   } catch (error) {
     console.log(error);
+  }
+};
+
+exports.getOrders = async (req, res) => {
+  try {
+      const orders = await Order.find()
+      return res.json(orders)
+  } catch (error) {
+      return res.status(500).json({ errorMessage: "An error occured" })
   }
 };

@@ -1,19 +1,21 @@
 import PropTypes from "prop-types"
-import { useEffect } from "react"
+import { createContext, useEffect } from "react"
 import axios from "axios"
 
-export const OrderContextProvider = ({children}) => {
-    let orderData = {}
+export const OrderContext = createContext()
 
-    async function getOrders() {
-        try {
-            const response = await axios.get("http://localhost:3000/menu/getMenu")
-            orderData = response.data
-        } catch (error) {
-            console.error("Error fetching order data from the server");
-        }
+let orderData = []
+
+async function getOrders() {
+    try {
+        const response = await axios.get("http://localhost:3000/order/getOrders");
+        orderData = response.data
+    } catch (error) {
+        console.error("Error fetching order data from the server");
     }
+}
 
+export const OrderContextProvider = ({children}) => {
     useEffect(() => {
         getOrders()
     }, [])
