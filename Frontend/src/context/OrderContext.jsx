@@ -1,31 +1,17 @@
+import { createContext } from "react";
 import PropTypes from "prop-types"
-import { createContext, useEffect } from "react"
-import axios from "axios"
 
-export const OrderContext = createContext()
+export const orderContext = createContext()
 
-let orderData = []
+export const OrderContextProvider = ({ children }) => {
 
-async function getOrders() {
-    try {
-        const response = await axios.get("http://localhost:3000/order/getOrders");
-        orderData = response.data
-    } catch (error) {
-        console.error("Error fetching order data from the server");
-    }
-}
 
-export const OrderContextProvider = ({children}) => {
-    useEffect(() => {
-        getOrders()
-    }, [])
-
-    const contextValue = {orderData}
-    return ( <OrderContextProvider value={contextValue}>{children}</OrderContextProvider> )
+    const contextValue = {}
+    return (<orderContext.provider>{children}</orderContext.provider>)
 }
 
 OrderContextProvider.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
  };
 
 export default OrderContextProvider

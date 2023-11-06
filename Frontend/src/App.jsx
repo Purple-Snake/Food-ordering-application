@@ -10,7 +10,7 @@ import AdminPage from "./components/admin/AdminPage";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import ShopContextProvider from "./context/ShopContext";
-// import OrderContextProvider from "./context/OrderContext";
+import OrderContextProvider from "./context/OrderContext";
 import { AuthContext } from "./context/authContext";
 import axios from "axios";
 
@@ -20,7 +20,7 @@ function App() {
   const { loggedIn } = useContext(AuthContext);
   return (
     <ShopContextProvider>
-      {/* <OrderContextProvider> */}
+      <OrderContextProvider>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -29,7 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
-      {/* </OrderContextProvider> */}
+      </OrderContextProvider>
     </ShopContextProvider>
   );
 }

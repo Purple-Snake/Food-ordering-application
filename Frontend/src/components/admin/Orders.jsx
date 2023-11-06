@@ -20,6 +20,7 @@ function Orders() {
         getOrders();
     }, [])
 
+    // This is to check the object, remove later.
     useEffect(() => {
         console.log(orderData);
     }, [orderData]);
