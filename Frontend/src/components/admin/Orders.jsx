@@ -29,13 +29,13 @@ function Orders() {
         return <p>Loading...</p>;
     }
     return ( 
-        <>
+        <div className="flex-col">
             {orderData.map((order) => (
                 <div key={order._id}>
                     <Order order={order} />
                 </div>
             ))}
-        </>
+        </div>
      );
 }
 

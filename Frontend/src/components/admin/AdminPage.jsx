@@ -3,10 +3,10 @@ import SelectedOrder from "./SelectedOrder";
 
 function AdminPage() {
   return (
-    <>
+    <div className="flex">
       <Orders />
       <SelectedOrder />
-    </>
+    </div>
   );
 }
 

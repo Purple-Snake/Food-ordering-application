@@ -8,11 +8,12 @@
   --Font-Georgian: 'Noto Serif Georgian', serif;
 }
 
+/* Colors */
 .navBar, .sidePanel, .mobileCartBtn, .cartItems {
   background-color: var(--DarkBrown);
 }
 
-.foodList, .foodGroupButton, .paymentContainer, .login, .register, .order{
+.foodList, .foodGroupButton, .paymentContainer, .login, .register, .modal-content, .order, .selected-order{
   background-color: var(--lightBrown);
 }
 
@@ -20,8 +21,13 @@
   background-color: var(--lightPinkBrown);
 }
 
-.title {
+/* Fonts */
+.title, .name, .modal-text, label, .amountNumber, .cartTitle, .totalPrice, .foodGroupButton, .foodGroupTitle {
   font-family: var(--Font-Inter);
+}
+
+.ingredients {
+  font-family: var(--Font-Georgian)
 }
 
 .icon {

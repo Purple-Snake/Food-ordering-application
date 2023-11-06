@@ -7,7 +7,7 @@ function SelectedOrder() {
   return (
     <>
       {orderIsSelected && (
-        <div>
+        <div className="selected-order w-60">
           <h1>Selected order</h1>
           <div className="flex">
             <div>User name: {selectedOrder.userName}</div>
