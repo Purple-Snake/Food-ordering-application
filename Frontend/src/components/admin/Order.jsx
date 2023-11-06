@@ -1,12 +1,12 @@
 import PropTypes from "prop-types"
-import { useState } from "react";
+import { useContext } from "react";
+import { OrderContext } from "../../context/OrderContext"
 
 function Order({ order }) {
-    const [delivery] = useState(order.delivery)
-    const [selfPickUp] = useState(order.selfPickUp)
+    const { selectOrder } = useContext(OrderContext)
 
     return ( 
-        <button className="order">
+        <button className="order" onClick={() => selectOrder(order)}>
             <div className="flex">
                 <div>User name: {order.userName}</div>
                 <div>Order id: {order.orderId}</div>
@@ -19,12 +19,6 @@ function Order({ order }) {
                 })}
             </div>
             <div>Total price: {order.totalAmount}€</div>
-            {delivery && (
-                <div>Delivery address: {order.address}</div>
-            )}
-            {selfPickUp && (
-                <div>Self pickup location: {order.location}</div>
-            )}
         </button>
      );
 }

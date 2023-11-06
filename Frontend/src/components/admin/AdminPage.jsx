@@ -1,9 +1,13 @@
-import Orders from "./Orders"
+import Orders from "./Orders";
+import SelectedOrder from "./SelectedOrder";
 
 function AdminPage() {
-    return ( 
-        <Orders />
-     );
+  return (
+    <>
+      <Orders />
+      <SelectedOrder />
+    </>
+  );
 }
 
 export default AdminPage;

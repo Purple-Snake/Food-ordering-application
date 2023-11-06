@@ -1,13 +1,24 @@
-import { createContext } from "react";
+import { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types"
 
-export const orderContext = createContext()
+export const OrderContext = createContext()
 
 export const OrderContextProvider = ({ children }) => {
+    const [ selectedOrder, setSelectedOrder ] = useState({});
+    const [ orderIsSelected, setOrderIsSelected ] = useState(false);
 
+    function selectOrder(order) {
+        setSelectedOrder(order)
+        setOrderIsSelected(true)
+    }
 
-    const contextValue = {}
-    return (<orderContext.provider>{children}</orderContext.provider>)
+    // Remove useEffect later
+    useEffect(() => {
+        console.log(selectedOrder);
+    }, [selectedOrder]);
+
+    const contextValue = {selectOrder, selectedOrder, orderIsSelected}
+    return (<OrderContext.Provider value={contextValue}>{children}</OrderContext.Provider>)
 }
 
 OrderContextProvider.propTypes = {
