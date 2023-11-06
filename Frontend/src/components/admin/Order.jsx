@@ -6,19 +6,19 @@ function Order({ order }) {
     const { selectOrder } = useContext(OrderContext)
 
     return ( 
-        <button className="order" onClick={() => selectOrder(order)}>
+        <button className="order w-80 p-4 rounded-md" onClick={() => selectOrder(order)}>
             <div className="flex">
-                <div>User name: {order.userName}</div>
-                <div>Order id: {order.orderId}</div>
+                <div className="user-name mr-4">User name: {order.userName}</div>
+                <div className="order-id">Order id: {order.orderId}</div>
             </div>
             <div className="orderItems">
                 {Object.entries(order.filteredCartItems).map(entry => {
                     let key = entry[0]
                     let value = entry[1]
-                    return (<div key={key}>{key}: {value}</div>)
+                    return (<div className="order-item" key={key}>{key}: {value}</div>)
                 })}
             </div>
-            <div>Total price: {order.totalAmount}€</div>
+            <div className="totalPrice">Total price: {order.totalAmount}€</div>
         </button>
      );
 }

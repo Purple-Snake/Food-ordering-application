@@ -12,4 +12,8 @@ orderRouter
 .route("/getOrders")
 .get(orderController.getOrders)
 
+orderRouter
+.route("/deleteOrder/:id")
+.delete(orderController.deleteOrder)
+
 module.exports = orderRouter;

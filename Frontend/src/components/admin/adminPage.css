@@ -1,0 +1,33 @@
+:root {
+    --DarkBrown: #7D5A50;
+    --lightBrown: #B4846C;
+    --lightPinkBrown: #E5B299;
+    --White: #fff;
+    --Grey: #d9d9d9;
+    --Red: #db1d0f;
+    --Font-Inter: 'Inter', sans-serif;;
+}
+
+.order, .selected-order {
+    background-color: var(--lightBrown);
+}
+
+.user-name, .order-id, .order-item, .selected-order {
+    font-family: var(--Font-Inter);
+}
+
+.order-list-container {
+    overflow-y: auto;
+    max-height: 86vh;
+}
+
+.confirm-panel {
+    background-color: var(--Red);
+    z-index: 1;
+    transform: translateY(0);
+    transition: transform 1s;
+}
+
+.confirm-panel.active {
+    transform: translateY(2rem);
+}

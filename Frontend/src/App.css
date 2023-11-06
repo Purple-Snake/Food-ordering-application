@@ -13,7 +13,7 @@
   background-color: var(--DarkBrown);
 }
 
-.foodList, .foodGroupButton, .paymentContainer, .login, .register, .modal-content, .order, .selected-order{
+.foodList, .foodGroupButton, .paymentContainer, .login, .register, .modal-content {
   background-color: var(--lightBrown);
 }
 
