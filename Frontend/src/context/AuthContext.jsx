@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types"
 import axios from "axios"
-import ShopContextProvider from "./ShopContext";
 
 export const AuthContext = createContext()
 
@@ -27,4 +26,4 @@ AuthContextProvider.propTypes = {
     children: PropTypes.node,
  };
 
-export default ShopContextProvider
+export default AuthContextProvider

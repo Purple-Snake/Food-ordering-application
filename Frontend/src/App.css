@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --DarkBrown: #7D5A50;
   --lightBrown: #B4846C;
@@ -12,11 +8,12 @@
   --Font-Georgian: 'Noto Serif Georgian', serif;
 }
 
+/* Colors */
 .navBar, .sidePanel, .mobileCartBtn, .cartItems {
   background-color: var(--DarkBrown);
 }
 
-.foodList, .foodGroupButton, .paymentContainer, .login, .register{
+.foodList, .foodGroupButton, .paymentContainer, .login, .register, .modal-content {
   background-color: var(--lightBrown);
 }
 
@@ -24,8 +21,13 @@
   background-color: var(--lightPinkBrown);
 }
 
-.title {
+/* Fonts */
+.title, .name, .modal-text, label, .amountNumber, .cartTitle, .totalPrice, .foodGroupButton, .foodGroupTitle {
   font-family: var(--Font-Inter);
+}
+
+.ingredients {
+  font-family: var(--Font-Georgian)
 }
 
 .icon {
@@ -33,6 +35,6 @@
   height: 70px;
 }
 
-.foodGroupButton:hover {
+.foodGroupButton:hover, .order:hover {
   background-color: var(--DarkBrown);
 }
