@@ -18,7 +18,10 @@
    npm run dev
    
    3.2 Backend
+   
    cd Backend
+   
+   Create a .env file with Mongo_URI and JWT_Secret
    
    npm i
    
