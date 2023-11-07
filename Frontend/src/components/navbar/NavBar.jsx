@@ -1,4 +1,5 @@
 import userIcon from "../../assets/images/svg/user-solid.svg";
+import adminIcon from "../../assets/images/svg/user-secret-solid.svg"
 import cartIcon from "../../assets/images/svg/cart-shopping-solid.svg";
 import homeIcon from "../../assets/images/svg/house-solid.svg";
 import logOutIcon from "../../assets/images/svg/log-out.svg"
@@ -11,7 +12,7 @@ import { ShopContext } from "../../context/ShopContext";
 import axios from "axios";
 
 function NavBar() {
-  const { loggedIn, userName } = useContext(AuthContext);
+  const { loggedIn, userName, userRole } = useContext(AuthContext);
   const { itemCount } = useContext(ShopContext)
 
   async function logOut() {
@@ -34,9 +35,16 @@ function NavBar() {
       <div className="sidePanelBtn md:hidden z-10" onClick={handleClick}>
         <img src={sidePanelBars} alt="Side panel" className="icon" />
       </div>
-      <Link to="/">
-        <img src={homeIcon} alt="Home" className="icon" />
-      </Link>
+      <div className="flex">
+        <Link to="/">
+          <img src={homeIcon} alt="Home" className="icon" />
+        </Link>
+        {userRole == "admin" && (
+          <Link to="/admin">
+            <img src={adminIcon} alt="to admin" className="icon"/>
+          </Link>
+          )}
+      </div>
       <h1 className="title text-6xl">TITLE</h1>
       <div className="flex">
         {!loggedIn && (
