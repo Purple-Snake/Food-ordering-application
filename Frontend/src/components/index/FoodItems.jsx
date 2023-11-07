@@ -58,13 +58,13 @@ function FoodItems({ foodItems }) {
               </button>
             )}
             {!loggedIn && (
-              <div onClick={() => setModalState(true)}>
+              <button className="addToCartBtn" onClick={() => setModalState(true)}>
                 <img
                   src={cartIcon}
                   alt="Add to cart"
                   className="icon addToCartIcon"
                 />
-              </div>
+              </button>
               )}
               {modalState && 
                 <Modal setModalState={setModalState} />
