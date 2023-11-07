@@ -7,10 +7,12 @@ import FoodGroupButtons from "../index/FoodGroupButtons";
 import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/authContext";
+import { ShopContext } from "../../context/ShopContext";
 import axios from "axios";
 
 function NavBar() {
   const { getLoggedIn, loggedIn, userName } = useContext(AuthContext);
+  const { itemCount } = useContext(ShopContext)
 
   async function logOut() {
     await axios.get("http://localhost:3000/auth/logout")
@@ -45,9 +47,10 @@ function NavBar() {
         )}
         {loggedIn && (
           <>
-          <div className="WelcomeText">Welcome, {userName}</div>
-            <Link to="/cart" className="cartBtn max-md:hidden m-2">
+          <div className="WelcomeText mt-auto mb-auto">Welcome, {userName}</div>
+            <Link to="/cart" className="cartBtn max-md:hidden m-2 relative">
               <img src={cartIcon} alt="Cart" className="cartIcon icon" />
+              <div className="absolute bottom-0 right-0 bg-black rounded-full w-6 h-6 text-center">{itemCount}</div>
             </Link>
             <button onClick={logOut}><img src={logOutIcon} alt="Log Out"  className="icon"/></button>
           </>
