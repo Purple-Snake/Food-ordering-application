@@ -1,7 +1,7 @@
 import "./App.css";
 import "./components/cart/cartPage.css";
 import "./components/index/homePage.css";
-import NavBar from "./components/index/NavBar";
+import NavBar from "./components/navbar/NavBar";
 import Home from "./components/index/Home";
 import CartPage from "./components/cart/CartPage";
 import RegisterForm from "./components/login/RegisterFrom";

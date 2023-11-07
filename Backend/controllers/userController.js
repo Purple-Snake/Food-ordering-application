@@ -139,9 +139,9 @@ exports.userInfo = (req, res) => {
             }
 
             if (decoded.role == "admin") {
-                return res.status(200).json({ role: "admin" })
+                return res.status(200).json({ role: "admin", userName: decoded.userName })
             } else {
-                return res.status(200).json({ role: "user" })
+                return res.status(200).json({ role: "user", userName: decoded.userName })
             }
         })
     } catch (error) {
