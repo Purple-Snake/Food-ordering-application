@@ -17,7 +17,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 function App() {
-  const { loggedIn } = useContext(AuthContext);
+  const { loggedIn, userRole } = useContext(AuthContext);
   return (
     <ShopContextProvider>
       <OrderContextProvider>
@@ -27,7 +27,7 @@ function App() {
           {loggedIn && <Route path="/cart" element={<CartPage />} />}
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/admin" element={<AdminPage />} />
+          {userRole == "admin" && <Route path="/admin" element={<AdminPage />} />}
         </Routes>
       </OrderContextProvider>
     </ShopContextProvider>

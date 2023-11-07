@@ -6,17 +6,24 @@ export const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
     const [loggedIn, setLoggedIn] = useState(undefined);
+    const [userRole, setUserRole] = useState(undefined)
 
     async function getLoggedIn() {
         const loggedInResponse = await axios.get("http://localhost:3000/auth/loggedIn")
         setLoggedIn(loggedInResponse.data)
     }
 
+    async function getUserInfo() {
+        const userInfoResponse = await axios.get("http://localhost:3000/auth/userInfo")
+        setUserRole(userInfoResponse.data.role)
+    }
+
     useEffect(() => {
         getLoggedIn()
+        .then(getUserInfo())
     }, [])
  
-    const contextValue = {loggedIn, getLoggedIn}
+    const contextValue = {loggedIn, getLoggedIn, userRole}
     return ( 
         <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
      );

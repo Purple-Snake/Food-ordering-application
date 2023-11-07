@@ -42,6 +42,7 @@ exports.register = async (req, res) => {
             {
                 user: createdUser._id,
                 userName: createdUser.userName,
+                role: createdUser.role
             }, process.env.JWT_Secret
             )
             res.cookie("token", token, {
@@ -87,6 +88,7 @@ exports.login = async (req, res) => {
             {
                 user: existingUser._id,
                 userName: existingUser.userName,
+                role: existingUser.role
             }, process.env.JWT_Secret
             )
             res.cookie("token", token, {
@@ -119,6 +121,30 @@ exports.loggedIn = (req, res) => {
 
          return res.send(true)
     } catch {
+        res.json(false)
+    }
+}
+
+exports.userInfo = (req, res) => {
+    try {
+        const token = req.cookies.token
+
+        if (!token) {
+            return res.json(false)
+        }
+
+        JWT.verify(token, process.env.JWT_Secret, (err, decoded) => {
+            if (err) {
+              return res.status(401).json({ errorMessage: "Invalid token" });
+            }
+
+            if (decoded.role == "admin") {
+                return res.status(200).json({ role: "admin" })
+            } else {
+                return res.status(200).json({ role: "user" })
+            }
+        })
+    } catch (error) {
         res.json(false)
     }
 }

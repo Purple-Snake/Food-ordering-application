@@ -14,6 +14,11 @@ function NavBar() {
 
   async function logOut() {
     await axios.get("http://localhost:3000/auth/logout")
+    .then((response) => {
+      if (response.status === 200) {
+        return (window.location.href = "http://localhost:5173/");
+      }
+    });
     getLoggedIn()
   }
 

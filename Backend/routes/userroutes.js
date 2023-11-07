@@ -20,4 +20,8 @@ userRouter
 .route("/loggedIn")
 .get(userController.loggedIn)
 
+userRouter
+.route("/userInfo")
+.get(userController.userInfo)
+
 module.exports = userRouter;
