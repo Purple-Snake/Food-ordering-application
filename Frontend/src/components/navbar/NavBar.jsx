@@ -11,7 +11,7 @@ import { ShopContext } from "../../context/ShopContext";
 import axios from "axios";
 
 function NavBar() {
-  const { getLoggedIn, loggedIn, userName } = useContext(AuthContext);
+  const { loggedIn, userName } = useContext(AuthContext);
   const { itemCount } = useContext(ShopContext)
 
   async function logOut() {
@@ -21,7 +21,6 @@ function NavBar() {
         return (window.location.href = "http://localhost:5173/");
       }
     });
-    getLoggedIn()
   }
 
   const [sidePanel, setSidePanel] = useState(false);
