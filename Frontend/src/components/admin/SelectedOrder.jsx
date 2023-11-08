@@ -20,8 +20,8 @@ function SelectedOrder() {
   return (
     <>
       {orderIsSelected && (
-        <div className="selected-order-container m-auto ml-20 relative">
-          <div className="selected-order w-80 h-96 p-4 rounded-md z-10 relative">
+        <div className="selected-order-container left-20 top-20 relative">
+          <div className="selected-order w-80 h-96 p-4 mt-auto mb-auto rounded-md z-10 relative">
             <h1>Selected order</h1>
             <div className="flex">
               <div className="user-name mr-4">
@@ -72,7 +72,7 @@ function SelectedOrder() {
         </div>
       )}
       {!orderIsSelected && (
-        <div className="selected-order w-80 h-96 p-4 rounded-md m-auto ml-20 relative">
+        <div className="selected-order w-80 h-96 p-4 rounded-md left-20 top-20 relative">
           No order selected
         </div>
       )}
