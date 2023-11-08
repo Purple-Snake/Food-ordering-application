@@ -15,7 +15,7 @@ function FoodItems({ foodItems }) {
   function checkSpicyLevel(spicyNumber) {
     const spicyLvl = [];
     for (let i = 0; i < spicyNumber; i++) {
-      spicyLvl.push(<img src={spicyIcon} alt="spicy!" className="spicyIcon" />);
+      spicyLvl.push(<img src={spicyIcon} alt="spicy!" key={i} className="spicyIcon" />);
     }
     return spicyLvl;
   }
