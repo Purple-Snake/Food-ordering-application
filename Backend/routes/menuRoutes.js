@@ -12,4 +12,8 @@ menuRouter
 .route("/postMenu")
 .post(menuController.postMenu)
 
+menuRouter
+.route("/deleteMenuItem/:id")
+.delete(menuController.deleteMenuItem)
+
 module.exports = menuRouter;
