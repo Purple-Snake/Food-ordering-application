@@ -27,7 +27,6 @@ export const ShopContextProvider = ({ children }) => {
   useEffect(() => {
     getTheMenu().then(() => {
       const grouped = _.groupBy(menuData, "foodGroup");
-      console.log(cartItems);
       setGroupedFood(grouped);
     });
   }, [cartItems]);
