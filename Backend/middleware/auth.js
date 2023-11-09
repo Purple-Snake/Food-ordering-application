@@ -1,8 +1,5 @@
 // const jwt = require("jsonwebtoken");
 
-// // Checks if user is logged in
-// // Doesn't work for now ¯\_(ツ)_/¯
-
 // function auth(req, res, next) {
 //   try {
 //     const token = req.cookies.token;
