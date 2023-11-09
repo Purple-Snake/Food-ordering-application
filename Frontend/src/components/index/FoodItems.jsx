@@ -48,7 +48,7 @@ function FoodItems({ foodItems }) {
             {loggedIn && (
               <button
                 className="addToCartBtn"
-                onClick={() => addToCart(foodItem.name)}
+                onClick={() => addToCart(foodItem.foodName)}
               >
                 <img
                   src={cartIcon}

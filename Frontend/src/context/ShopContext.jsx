@@ -12,7 +12,7 @@ async function getTheMenu() {
     const response = await axios.get("http://localhost:3000/menu/getMenu");
     menuData = response.data;
     for (let i = 0; i < menuData.length; i++) {
-      cart[menuData[i].name] = 0;
+      cart[menuData[i].foodName] = 0;
     }
   } catch (error) {
     console.error("Error fetching menu data from the server");
@@ -27,15 +27,16 @@ export const ShopContextProvider = ({ children }) => {
   useEffect(() => {
     getTheMenu().then(() => {
       const grouped = _.groupBy(menuData, "foodGroup");
+      console.log(cartItems);
       setGroupedFood(grouped);
     });
-  }, []);
+  }, [cartItems]);
 
   const getTotalAmount = () => {
     let totalAmount = 0;
     for (const foodName in cartItems) {
       if (cartItems[foodName] > 0) {
-        let itemInfo = menuData.find((product) => product.name === foodName);
+        let itemInfo = menuData.find((product) => product.foodName === foodName)
         totalAmount += cartItems[foodName] * itemInfo.price;
       }
     }

@@ -32,11 +32,11 @@ function CartItem({ cartItem }) {
           <b>{cartItem.price}€</b>
         </div>
         <div className="flex">
-          <button onClick={() => removeFromCart(cartItem.name)} className="border-y-2 border-l-2 rounded-l-lg border-black">
+          <button onClick={() => removeFromCart(cartItem.foodName)} className="border-y-2 border-l-2 rounded-l-lg border-black">
             <img src={minusIcon} alt="Minus" className="cartIcons" />
           </button>
-          <div className="amountNumber w-16 text-3xl border-2 border-black flex items-center justify-center">{cartItems[cartItem.name]}</div>
-          <button onClick={() => addToCart(cartItem.name)} className="border-y-2 border-r-2 rounded-r-lg border-black">
+          <div className="amountNumber w-16 text-3xl border-2 border-black flex items-center justify-center">{cartItems[cartItem.foodName]}</div>
+          <button onClick={() => addToCart(cartItem.foodName)} className="border-y-2 border-r-2 rounded-r-lg border-black">
             <img src={plusIcon} alt="Plus" className="cartIcons"/>
           </button>
         </div>
