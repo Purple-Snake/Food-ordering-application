@@ -45,7 +45,7 @@ function NavBar() {
           </Link>
           )}
       </div>
-      <h1 className="title text-6xl">TITLE</h1>
+      <h1 className="title text-6xl max-md:text-5xl">TITLE</h1>
       <div className="flex">
         {!loggedIn && (
           <Link to="/register">
@@ -59,7 +59,7 @@ function NavBar() {
               <img src={cartIcon} alt="Cart" className="cartIcon icon" />
               <div className="absolute bottom-0 right-0 bg-black rounded-full w-6 h-6 text-center">{itemCount}</div>
             </Link>
-            <button onClick={logOut}><img src={logOutIcon} alt="Log Out"  className="icon"/></button>
+            <button onClick={logOut}><img src={logOutIcon} alt="Log Out" className="icon"/></button>
           </>
         )}
       </div>
@@ -70,24 +70,23 @@ function NavBar() {
           !sidePanel
             ? "hidden"
             : "sidePanel absolute top-0 left-0 w-full h-screen flex flex-col justify-center items-center"
-        }
-      >
+        }>
         <FoodGroupButtons closeSidePanel={handleClick} sidePanel={sidePanel} />
       </ul>
+      {loggedIn && (
       <div
         className={
           !sidePanel
             ? "mobileCartBtn md:hidden fixed bottom-0 h-14 w-screen z-50 flex"
             : "hidden"
-        }
-      >
-        <a
-          href="/cart"
-          className="m-auto w-4/5 h-2/3 bg-black text-center rounded-md"
-        >
+        }>
+        <Link
+          to="/cart"
+          className="m-auto w-4/5 h-2/3 bg-black text-center rounded-md">
           <button className="text-lg m-auto">Cart</button>
-        </a>
+        </Link>
       </div>
+      )}
     </div>
   );
 }

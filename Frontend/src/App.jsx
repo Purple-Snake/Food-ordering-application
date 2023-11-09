@@ -5,7 +5,7 @@ import NavBar from "./components/navbar/NavBar";
 import Home from "./components/index/Home";
 import CartPage from "./components/cart/CartPage";
 import RegisterForm from "./components/login/RegisterFrom";
-import Login from "./components/login/login";
+import Login from "./components/login/Login";
 import AdminPage from "./components/admin/AdminPage";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
