@@ -78,6 +78,7 @@ exports.deleteOrder = async (req, res) => {
   try {
     const orderId = req.params.id;
     const deletedOrder = await Order.findByIdAndDelete(orderId);
+    
     if (deletedOrder) {
       res.status(200).json({ message: "Order deleted successfully." })
     } else {

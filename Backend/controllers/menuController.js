@@ -46,3 +46,19 @@ exports.postMenu = async (req, res) => {
         console.log(error);
     }
 }
+
+exports.deleteMenuItem = async (req, res) => {
+    try {
+        const menuItemId = req.params.id;
+        console.log(menuItemId);
+        const deletedMenuItem = await Menu.findByIdAndDelete(menuItemId)
+
+        if (deletedMenuItem) {
+            res.status(200).json({ message: "Item successfully removed." })
+        } else {
+            res.status(404),json({ errorMessage: "Item not found" })
+        }
+    } catch (error) {
+        return res.status(500).json({ errorMessage: "An error occured"})
+    }
+}
