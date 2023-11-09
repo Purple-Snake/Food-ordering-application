@@ -8,5 +8,8 @@ menuRouter
 .route("/getMenu")
 .get(menuController.getMenu)
 
+menuRouter
+.route("/postMenu")
+.post(menuController.postMenu)
 
 module.exports = menuRouter;

@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 // Menu schema
 const menuSchema = new mongoose.Schema({
     id: {
-        type: Number,
+        type: String,
         required: true,
         unique: true
     },
-    name: {
+    foodName: {
         type: String,
         required: true,
     },
@@ -24,7 +24,8 @@ const menuSchema = new mongoose.Schema({
     },
     foodGroup: {
         type: String,
-        required: true
+        required: true,
+        default: "Misc."
     },
     spicyLevel: {
         type: Number,
