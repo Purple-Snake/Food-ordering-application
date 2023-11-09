@@ -36,7 +36,7 @@ function Login() {
   return (
     <>
     <div className="relative z-10">
-      <div className="login rounded-md w-1/4 m-20 p-5 relative z-10">
+      <div className="login rounded-md w-3/12 max-md:w-8/12 max-md:mt-32 m-20 p-5 relative z-10">
         <h1>
           <b>Log in</b>
         </h1>
@@ -80,7 +80,7 @@ function Login() {
       </div>
 
         <div
-          className={`error-panel w-1/4 top-0 left-20 p-5 rounded-md absolute ${
+          className={`error-panel w-1/4 max-md:w-2/4 top-0 left-20 p-5 rounded-md absolute ${
             errorPanel ? "active" : ""}`}>
             {errorMessage}
         </div>

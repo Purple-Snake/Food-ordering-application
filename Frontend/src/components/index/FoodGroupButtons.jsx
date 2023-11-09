@@ -17,9 +17,9 @@ function FoodGroupButtons({ closeSidePanel, sidePanel }) {
   const { groupedFood } = useContext(ShopContext)
 
   return (
-      <div className="groupButtons flex justify-center max-md:flex-col">
+      <div className="groupButtons flex flex-wrap justify-center max-md:flex-col max-md:overflow-auto max-md:w-screen">
         {Object.keys(groupedFood).map((group) => (
-          <button key={group} className="foodGroupButton" onClick={() => scrollToFoodGroup(group)}>
+          <button key={group} className="foodGroupButton max-md:mx-auto max-md:my-6" onClick={() => scrollToFoodGroup(group)}>
             {group}
           </button>
         ))}
