@@ -22,6 +22,7 @@
    cd Backend
    
    Create a .env file with Mongo_URI and JWT_Secret
+   ![image](https://github.com/Purple-Snake/Food-ordering-application/assets/120168034/88c71b09-a02c-43cd-85d5-799fe2ede9dc)
    
    npm i
    
