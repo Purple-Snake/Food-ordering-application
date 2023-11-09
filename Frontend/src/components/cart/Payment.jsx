@@ -75,7 +75,7 @@ function Payment() {
         <span>Self Pickup</span>
         {delivery && (
         <div>
-          <input type="text" placeholder="Address" onChange={(e) => setAddress(e.target.value)} defaultValue={address} className="bg-[#D9D9D9] rounded-md border-2 border-black p-2 m-1"/>
+          <input type="text" placeholder="Address" onChange={(e) => setAddress(e.target.value)} defaultValue={address} className="bg-[#D9D9D9] rounded-md border-2 border-black p-2 m-1" required/>
         </div>
         )}
         {selfPickUp && (

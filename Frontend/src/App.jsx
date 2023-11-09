@@ -11,6 +11,7 @@ import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import ShopContextProvider from "./context/ShopContext";
 import { OrderContextProvider } from "./context/OrderContext";
+import { AdminContextProvider } from "./context/AdminContext";
 import { AuthContext } from "./context/authContext";
 import axios from "axios";
 
@@ -21,14 +22,30 @@ function App() {
   return (
     <ShopContextProvider>
       <OrderContextProvider>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {loggedIn && <Route path="/cart" element={<CartPage />} />}
-          <Route path="/register" element={<RegisterForm />} />
-          <Route path="/login" element={<Login />} />
-          {userRole == "admin" && <Route path="/admin" element={<AdminPage />} />}
-        </Routes>
+        {userRole === "admin" ? (
+          <>
+            <AdminContextProvider>
+              <NavBar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                {loggedIn && <Route path="/cart" element={<CartPage />} />}
+                <Route path="/register" element={<RegisterForm />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/admin" element={<AdminPage />} />
+              </Routes>
+            </AdminContextProvider>
+          </>
+        ) : (
+          <>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {loggedIn && <Route path="/cart" element={<CartPage />} />}
+              <Route path="/register" element={<RegisterForm />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </>
+        )}
       </OrderContextProvider>
     </ShopContextProvider>
   );

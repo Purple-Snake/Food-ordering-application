@@ -15,7 +15,7 @@ function FoodItems({ foodItems }) {
   function checkSpicyLevel(spicyNumber) {
     const spicyLvl = [];
     for (let i = 0; i < spicyNumber; i++) {
-      spicyLvl.push(<img src={spicyIcon} alt="spicy!" className="spicyIcon" />);
+      spicyLvl.push(<img src={spicyIcon} alt="spicy!" key={i} className="spicyIcon" />);
     }
     return spicyLvl;
   }
@@ -26,13 +26,13 @@ function FoodItems({ foodItems }) {
           <div>
             <img
               src={foodItem.picture}
-              alt={foodItem.name}
+              alt={foodItem.foodName}
               className="foodImage rounded-md max-md:w-full"
             />
           </div>
           <div className="nameContainer">
             <div className="name flex text-3xl m-1">
-              <b>{foodItem.name}</b>
+              <b>{foodItem.foodName}</b>
               <span className="spicyLvlContainer flex">
                 {checkSpicyLevel(foodItem.spicyLevel)}
               </span>

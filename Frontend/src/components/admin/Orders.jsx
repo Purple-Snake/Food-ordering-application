@@ -1,24 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import Order from "./Order"
-import axios from "axios";
+import { AdminContext } from "../../context/AdminContext";
 
 function Orders() {
-    const [orderData, setOrderData] = useState([])
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        async function getOrders() {
-            try {
-                const response = await axios.get("http://localhost:3000/order/getOrders")
-                setOrderData(response.data)
-                setIsLoading(false)
-            } catch (error) {
-                console.log(error);
-                setIsLoading(false)
-            }
-        }
-        getOrders();
-    }, [])
+    const { orderData, isLoading } = useContext(AdminContext)
 
     if (isLoading) {
         return <p>Loading...</p>;
