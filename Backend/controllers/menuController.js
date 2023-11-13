@@ -12,6 +12,7 @@ exports.getMenu = async (req, res) => {
 exports.postMenu = async (req, res) => {
     try {
         const { foodName, ingredients, price, foodGroup, spicyLevel } = req.body;
+        const imageName = req.file.filename
 
         if (!foodName) {
             return res.status(400).json({ errorMessage: "Food needs a name" })
@@ -31,15 +32,15 @@ exports.postMenu = async (req, res) => {
             id += characters.charAt(Math.floor(Math.random() * characters.length))
         }
 
-        const newMenuItem = new Menu({
-            id,
-            foodName,
-            ingredients,
-            price,
-            foodGroup,
-            spicyLevel,
+        await Menu.create({
+            id: id,
+            foodName: foodName,
+            ingredients: ingredients,
+            picture: imageName,
+            price: price,
+            foodGroup: foodGroup,
+            spicyLevel: spicyLevel,
         })
-        newMenuItem.save()
 
         res.status(200).json({ message: "Menu item created." })
     } catch (error) {
