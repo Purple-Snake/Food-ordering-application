@@ -11,7 +11,7 @@ function CartItem({ cartItem }) {
     <div className="cartItem md:flex p-4" key={cartItem.id}>
       <div>
         <img
-          src={cartItem.picture}
+          src={`/images/${cartItem.picture}`}
           alt={cartItem.name}
           className="cartFoodImage rounded-md max-md:w-full"
         />
