@@ -26,6 +26,10 @@ exports.postMenu = async (req, res) => {
             return res.status(400).json({ errorMessage: "Need a price" })
         }
 
+        if(!foodGroup) {
+            return res.status(400).json({ errorMessage: "Need a food group" })
+        }
+
         let id = ""
         const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         for (let i = 0; i < 5; i++) {

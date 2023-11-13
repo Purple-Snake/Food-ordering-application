@@ -25,7 +25,7 @@ function FoodItems({ foodItems }) {
         <div className="foodMenuItem md:flex p-10" key={foodItem.id}>
           <div>
             <img
-              src={`../../public/images/${foodItem.picture}`}
+              src={`/images/${foodItem.picture}`}
               alt={foodItem.foodName}
               className="foodImage rounded-md max-md:w-full"
             />
