@@ -1,5 +1,6 @@
 const express = require("express");
 const menuController = require("../controllers/menuController")
+const upload = require("../middleware/multer")
 
 
 const menuRouter = express.Router();
@@ -10,7 +11,7 @@ menuRouter
 
 menuRouter
 .route("/postMenu")
-.post(menuController.postMenu)
+.post(upload.single("picture") ,menuController.postMenu)
 
 menuRouter
 .route("/deleteMenuItem/:id")
