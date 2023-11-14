@@ -32,6 +32,7 @@ function App() {
                 <Route path="/register" element={<RegisterForm />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin" element={<AdminPage />} />
+                {/* <Route path="/menuItems" element={}></Route> */}
               </Routes>
             </AdminContextProvider>
           </>

@@ -5,7 +5,7 @@ import axios from "axios";
 
 function SelectedOrder() {
   const { selectedOrder, orderIsSelected } = useContext(OrderContext);
-  const { getOrders } = useContext(AdminContext)
+  const { getOrders } = useContext(AdminContext);
   const [confirmPanel, setConfirmPanel] = useState(false);
 
   async function deleteOrder() {
@@ -20,8 +20,8 @@ function SelectedOrder() {
   return (
     <>
       {orderIsSelected && (
-        <div className="selected-order-container left-20 top-20 relative">
-          <div className="selected-order w-80 h-96 p-4 mt-auto mb-auto rounded-md z-10 relative">
+        <div className="selected-order-container mt-20 ml-20 relative h-60 flex">
+          <div className="selected-order w-80 h-60 p-4 mt-auto rounded-md z-10 relative">
             <h1>Selected order</h1>
             <div className="flex">
               <div className="user-name mr-4">
@@ -29,7 +29,7 @@ function SelectedOrder() {
               </div>
               <div className="order-id">Order id: {selectedOrder.orderId}</div>
             </div>
-            <div className="orderItems">
+            {/* <div className="orderItems">
               {Object.entries(selectedOrder.filteredCartItems).map((entry) => {
                 let key = entry[0];
                 let value = entry[1];
@@ -39,7 +39,7 @@ function SelectedOrder() {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
             <div className="absolute bottom-32">
               Total price: {selectedOrder.totalAmount}€
             </div>
@@ -61,7 +61,7 @@ function SelectedOrder() {
             </div>
           </div>
           <button
-            className={`confirm-panel absolute bottom-0 left-5 rounded-md p-1 ${
+            className={`confirm-panel absolute left-5 bottom-0 rounded-md p-1 ${
               confirmPanel ? "active" : ""}`}
             onClick={() => {
               deleteOrder()
@@ -69,11 +69,25 @@ function SelectedOrder() {
           >
             Confirm
           </button>
+          <div className="orderItems ml-5 p-4 rounded-md h-fit">
+            <h1 className="selected-order-items min-w-[10rem]">Order items:</h1>
+              {Object.entries(selectedOrder.filteredCartItems).map((entry) => {
+                let key = entry[0];
+                let value = entry[1];
+                return (
+                  <div className="order-item" key={key}>
+                    {key}: {value}
+                  </div>
+                );
+              })}
+            </div>
         </div>
       )}
       {!orderIsSelected && (
-        <div className="selected-order w-80 h-96 p-4 rounded-md left-20 top-20 relative">
-          No order selected
+        <div className="selected-order-container mt-20 ml-20 h-96">
+          <div className="selected-order w-80 h-96 p-4 rounded-md z-10">
+            No order selected
+          </div>
         </div>
       )}
     </>
