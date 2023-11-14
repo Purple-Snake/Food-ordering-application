@@ -17,7 +17,8 @@ menuRouter
 .route("/deleteMenuItem/:id")
 .delete(menuController.deleteMenuItem)
 
-// menuRouter("/updateMenuItem")
-// .patch(menuController.updateMenuItem)
+menuRouter
+.route("/updateMenuItem")
+.patch(menuController.updateMenuItem)
 
 module.exports = menuRouter;

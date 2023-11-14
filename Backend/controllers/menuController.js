@@ -77,7 +77,7 @@ exports.deleteMenuItem = async (req, res) => {
     const menuItemId = req.params.id;
 
     const token = req.cookies.token;
-    
+
     JWT.verify(token, process.env.JWT_Secret, async (err, decoded) => {
       if (err) {
         return res.status(401).json({ errorMessage: "Invalid token" });
@@ -96,33 +96,42 @@ exports.deleteMenuItem = async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({ errorMessage: "An error occured" });
   }
 };
 
-// exports.updateMenuItem = async (req, res) => {
-//   try {
-//     const { objectId, foodName, ingredients, price, foodGroup, spicyLevel } =
-//       req.body;
+exports.updateMenuItem = async (req, res) => {
+  try {
+    const { _id, foodName, ingredients, price, foodGroup, spicyLevel } =
+      req.body;
 
-//     await Menu.findOneAndUpdate(
-//       { _id: objectId },
-//       {
-//         $set: {
-//           foodName: foodName,
-//           ingredients: ingredients,
-//           price: price,
-//           foodGroup: foodGroup,
-//           spicyLevel: spicyLevel,
-//         },
-//       },
-//       { new: true }
-//     );
+    const token = req.cookies.token;
 
-//     res.status(200).json({ message: "Menu item updated successfully" });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json({ message: "Something went wrong" });
-//   }
-// };
+    JWT.verify(token, process.env.JWT_Secret, async (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ errorMessage: "Invalid token" });
+      }
+
+      if (decoded.role === "admin") {
+        await Menu.findOneAndUpdate(
+          { _id: _id },
+          {
+            $set: {
+              foodName: foodName,
+              ingredients: ingredients,
+              price: price,
+              foodGroup: foodGroup,
+              spicyLevel: spicyLevel,
+            },
+          },
+          { new: true }
+        );
+        res.status(200).json({ message: "Menu item updated successfully" });
+      } else {
+        res.status(401).json({ errorMessage: "unauthorized user" });
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
