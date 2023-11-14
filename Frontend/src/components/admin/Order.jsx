@@ -11,7 +11,7 @@ function Order({ order }) {
                 <div className="user-name mr-4">User name: {order.userName}</div>
                 <div className="order-id">Order id: {order.orderId}</div>
             </div>
-            <div className="orderItems">
+            <div>
                 {Object.entries(order.filteredCartItems).map(entry => {
                     let key = entry[0]
                     let value = entry[1]

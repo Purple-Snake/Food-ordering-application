@@ -8,11 +8,11 @@
     --Font-Inter: 'Inter', sans-serif;;
 }
 
-.order, .selected-order {
+.order, .selected-order, .orderItems {
     background-color: var(--lightBrown);
 }
 
-.user-name, .order-id, .order-item, .selected-order {
+.user-name, .order-id, .order-item, .selected-order, .selected-order-items {
     font-family: var(--Font-Inter);
 }
 
