@@ -64,7 +64,7 @@ exports.postMenu = async (req, res) => {
 
         res.status(200).json({ message: "Menu item created." });
       } else {
-        res.json({ errorMessage: "unauthorized user" });
+        res.status(401).json({ errorMessage: "unauthorized user" });
       }
     });
   } catch (error) {
@@ -92,7 +92,7 @@ exports.deleteMenuItem = async (req, res) => {
           res.status(404), json({ errorMessage: "Item not found" });
         }
       } else {
-        res.json({ errorMessage: "unauthorized user" });
+        res.status(401).json({ errorMessage: "unauthorized user" });
       }
     });
   } catch (error) {
