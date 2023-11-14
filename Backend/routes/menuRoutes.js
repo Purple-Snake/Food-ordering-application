@@ -11,10 +11,13 @@ menuRouter
 
 menuRouter
 .route("/postMenu")
-.post(upload.single("picture") ,menuController.postMenu)
+.post(upload.single("picture"), menuController.postMenu)
 
 menuRouter
 .route("/deleteMenuItem/:id")
 .delete(menuController.deleteMenuItem)
+
+// menuRouter("/updateMenuItem")
+// .patch(menuController.updateMenuItem)
 
 module.exports = menuRouter;
