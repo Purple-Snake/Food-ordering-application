@@ -84,8 +84,8 @@ function SelectedOrder() {
         </div>
       )}
       {!orderIsSelected && (
-        <div className="selected-order-container mt-20 ml-20 h-96">
-          <div className="selected-order w-80 h-96 p-4 rounded-md z-10">
+        <div className="selected-order-container mt-20 ml-20 relative h-60 flex">
+          <div className="selected-order w-80 h-60 p-4 mt-auto rounded-md z-10 relative">
             No order selected
           </div>
         </div>
