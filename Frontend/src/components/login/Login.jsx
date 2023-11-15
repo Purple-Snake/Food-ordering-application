@@ -36,7 +36,7 @@ function Login() {
   return (
     <>
     <div className="relative z-10">
-      <div className="login rounded-md w-3/12 max-md:w-8/12 max-md:mt-32 m-20 p-5 relative z-10">
+      <div className="login rounded-md w-96 max-md:w-8/12 max-md:mt-32 m-20 p-5 relative z-10">
         <h1>
           <b>Log in</b>
         </h1>

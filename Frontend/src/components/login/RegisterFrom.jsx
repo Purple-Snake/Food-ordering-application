@@ -40,7 +40,7 @@ function RegisterFrom() {
   return (
     <>
       <div className="relative z-10">
-        <div className="register relative z-10 rounded-md w-3/12 m-20 p-5 max-md:w-8/12 max-md:mt-32">
+        <div className="register relative z-10 rounded-md w-96 m-20 p-5 max-md:w-8/12 max-md:mt-32">
           <h1>
             <b>Sign up</b>
           </h1>
