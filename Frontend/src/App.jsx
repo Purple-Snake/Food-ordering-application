@@ -14,6 +14,7 @@ import { OrderContextProvider } from "./context/OrderContext";
 import { AdminContextProvider } from "./context/AdminContext";
 import { AuthContext } from "./context/authContext";
 import axios from "axios";
+import AdminFoodItems from "./components/admin/AdminFoodItems";
 
 axios.defaults.withCredentials = true;
 
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/register" element={<RegisterForm />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin" element={<AdminPage />} />
+                <Route path="/adminFood" element={<AdminFoodItems />} />
                 {/* <Route path="/menuItems" element={}></Route> */}
               </Routes>
             </AdminContextProvider>
