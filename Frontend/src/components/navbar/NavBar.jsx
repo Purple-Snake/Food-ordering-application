@@ -30,7 +30,7 @@ function NavBar() {
     document.body.style.overflow = sidePanel ? "auto" : "hidden";
   }
   return (
-    <div className="navBar w-full h-[100px] flex justify-around items-center text-white relative z-10">
+    <div className="navBar w-full h-[80px] flex justify-around items-center border-2 border-gray-300 relative z-10">
       {/* dekstop navbar */}
       <div className="sidePanelBtn md:hidden z-10" onClick={handleClick}>
         <img src={sidePanelBars} alt="Side panel" className="icon" />
@@ -57,7 +57,7 @@ function NavBar() {
           <div className="WelcomeText mt-auto mb-auto">Welcome, {userName}</div>
             <Link to="/cart" className="cartBtn max-md:hidden m-2 relative">
               <img src={cartIcon} alt="Cart" className="cartIcon icon" />
-              <div className="absolute bottom-0 right-0 bg-black rounded-full w-6 h-6 text-center">{itemCount}</div>
+              <div className="absolute bottom-0 right-0 bg-black text-white rounded-full w-6 h-6 text-center">{itemCount}</div>
             </Link>
             <button onClick={logOut}><img src={logOutIcon} alt="Log Out" className="icon"/></button>
           </>
@@ -82,7 +82,7 @@ function NavBar() {
         }>
         <Link
           to="/cart"
-          className="m-auto w-4/5 h-2/3 bg-black text-center rounded-md">
+          className="m-auto w-4/5 h-2/3 bg-black text-white text-center rounded-md">
           <button className="text-lg m-auto">Cart</button>
         </Link>
       </div>

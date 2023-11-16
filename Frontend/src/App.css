@@ -1,7 +1,7 @@
 :root {
-  --DarkBrown: #7D5A50;
-  --lightBrown: #B4846C;
-  --lightPinkBrown: #E5B299;
+  --DarkBrown: #bbbcbd;
+  --lightBrown: #d1d5db;
+  --lightPinkBrown: #c3c8d4;
   --White: #fff;
   --Grey: #d9d9d9;
   --Font-Inter: 'Inter', sans-serif;
@@ -9,7 +9,7 @@
 }
 
 /* Colors */
-.navBar, .sidePanel, .mobileCartBtn, .cartItems {
+.sidePanel, .mobileCartBtn, .cartItems {
   background-color: var(--DarkBrown);
 }
 
