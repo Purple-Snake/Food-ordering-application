@@ -82,7 +82,7 @@ function NavBar() {
         }>
         <Link
           to="/cart"
-          className="m-auto w-4/5 h-2/3 bg-black text-center rounded-md">
+          className="m-auto w-4/5 h-2/3 bg-black text-white text-center rounded-md">
           <button className="text-lg m-auto">Cart</button>
         </Link>
       </div>
