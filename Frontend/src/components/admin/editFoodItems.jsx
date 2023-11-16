@@ -3,8 +3,10 @@ import editIcon from "../../assets/images/svg/edit-item.svg";
 import PropTypes from "prop-types";
 
 function FoodItems({ foodItems }) {
-
   function edit(id) {
+    let editBtn = document.getElementById(`edit-btn-${id}`);
+    let confirmBtn = document.getElementById(`confirm-btn-${id}`);
+
     let foodPic = document.querySelector(`.foodItem-pic-${id} img`);
     let foodName = document.querySelector(`.foodItem-foodName-${id}`);
     let foodSpicy = document.querySelector(`.foodItem-spicy-${id}`);
@@ -16,6 +18,13 @@ function FoodItems({ foodItems }) {
     foodIngr.outerHTML = `<textarea style="width: 100%">${foodIngr.innerHTML}</textarea>`;
     foodPrice.outerHTML = `<input type="text" class="w-20" value=${foodPrice.innerHTML} />`;
     // foodPic.outerHTML =`<input type=file style="width:100%"></input>`
+
+    if (editBtn.style.display === "none") {
+      editBtn.style.display = "block";
+    } else {
+      editBtn.style.display = "none";
+      confirmBtn.style.display = "block";
+    }
   }
 
   function checkSpicyLevel(spicyNumber) {
@@ -34,12 +43,12 @@ function FoodItems({ foodItems }) {
           <div>
             <div className={`foodItem-pic-${foodItem.id}`}></div>
           </div>
-          <div className="nameContainer">
-            <div className="name text-3xl m-1">
-              <div>
-                Name:
-                <span className={`foodItem-foodName-${foodItem.id}`}>{foodItem.foodName}</span>
-              </div>
+          <div className="name text-3xl m-1">
+            <div>
+              Name:
+              <span className={`foodItem-foodName-${foodItem.id}`}>
+                {foodItem.foodName}
+              </span>
               <div>
                 Spice:
                 <span className={`foodItem-spicy-${foodItem.id}`}>
@@ -49,18 +58,40 @@ function FoodItems({ foodItems }) {
             </div>
             <div className="ingredients text-lg m-1 max-w-sm">
               <div>
-                <i className={`foodItem-ingr-${foodItem.id}`}>{foodItem.ingredients}</i>
+                <i className={`foodItem-ingr-${foodItem.id}`}>
+                  {foodItem.ingredients}
+                </i>
               </div>
             </div>
           </div>
           <div className="foodPrice text-3xl items-center">
             <div>
-              <b className={`foodItem-price-${foodItem.id}`}>{foodItem.price}</b>€
+              <b className={`foodItem-price-${foodItem.id}`}>
+                {foodItem.price}
+              </b>
+              €
             </div>
           </div>
-          <button className="editFoodItemBtn" onClick={() => edit(foodItem.id)}>
+          {/* <button className="editFoodItemBtn" onClick={() => edit(foodItem.id)}>
             <img src={editIcon} alt="Edit Item" className="icon editItemIcon" />
-          </button>
+          </button> */}
+          <div className="button-container">
+            <button
+              className="opt-btn"
+              id={`edit-btn-${foodItem.id}`}
+              onClick={() => edit(foodItem.id)}
+            >
+              <img className="icon" src={editIcon} alt="edit" />
+            </button>
+            <button
+              className="opt-btn"
+              id={`confirm-btn-${foodItem.id}`}
+              style={{ display: "none" }}
+              onClick={() => confirm(foodItem.id)}
+            >
+              <img className="icon" src="" alt="confirm" />
+            </button>
+          </div>
         </div>
       ))}
     </>
