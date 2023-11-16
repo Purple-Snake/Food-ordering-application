@@ -1,13 +1,3 @@
-:root {
-    --DarkBrown: #7D5A50;
-    --lightBrown: #B4846C;
-    --lightPinkBrown: #E5B299;
-    --White: #fff;
-    --Grey: #d9d9d9;
-    --Red: #db1d0f;
-    --Font-Inter: 'Inter', sans-serif;;
-}
-
 .order, .selected-order, .orderItems {
     background-color: var(--lightBrown);
 }
