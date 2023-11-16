@@ -20,7 +20,7 @@ exports.register = async (req, res) => {
             return res.status(400).json({ errorMessage: "Please enter the same password twice" })
         }
 
-        const existingUser = await User.findOne( {email: email} );
+        const existingUser = await User.findOne( {email: email.trim()} );
         
         if (existingUser) {
             return res.status(400).json({ errorMessage: "An account with this email already exists" })

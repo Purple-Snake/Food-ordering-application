@@ -43,7 +43,7 @@ exports.postMenu = async (req, res) => {
           return res.status(400).json({ errorMessage: "Need a food group" });
         }
 
-        const existingItem = await Menu.findOne( {foodName: foodName} );
+        const existingItem = await Menu.findOne( {foodName: foodName.trim()} );
         
         if (existingItem) {
             return res.status(400).json({ errorMessage: "An Item with the same name already exists" })
@@ -58,15 +58,15 @@ exports.postMenu = async (req, res) => {
           );
         }
 
-        await Menu.create({
+        const newItem = await Menu.create( {
           id: id,
-          foodName: foodName,
-          ingredients: ingredients,
-          picture: imageName,
+          foodName: foodName.trim(),
+          ingredients: ingredients.trim(),
+          picture: imageName.trim(),
           price: price,
-          foodGroup: foodGroup,
+          foodGroup: foodGroup.trim(),
           spicyLevel: spicyLevel,
-        });
+        })
 
         return res.status(200).json({ message: "Menu item created." });
       } else {
