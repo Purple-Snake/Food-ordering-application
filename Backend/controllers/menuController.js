@@ -43,6 +43,12 @@ exports.postMenu = async (req, res) => {
           return res.status(400).json({ errorMessage: "Need a food group" });
         }
 
+        const existingItem = await Menu.findOne( {foodName: foodName} );
+        
+        if (existingItem) {
+            return res.status(400).json({ errorMessage: "An Item with the same name already exists" })
+        }
+
         let id = "";
         const characters =
           "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -62,7 +68,7 @@ exports.postMenu = async (req, res) => {
           spicyLevel: spicyLevel,
         });
 
-        res.status(200).json({ message: "Menu item created." });
+        return res.status(200).json({ message: "Menu item created." });
       } else {
         res.status(401).json({ errorMessage: "unauthorized user" });
       }

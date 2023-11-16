@@ -10,6 +10,7 @@ const menuSchema = new mongoose.Schema({
     foodName: {
         type: String,
         required: true,
+        unique: true
     },
     ingredients: {
         type: String,
