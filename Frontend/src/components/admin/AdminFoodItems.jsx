@@ -1,8 +1,6 @@
 import FoodItems from "./editFoodItems";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ShopContext } from "../../context/ShopContext";
-import { element } from "prop-types";
-// ... (your component code)
 
 const AdminFoodItems = () => {
 
@@ -22,7 +20,5 @@ const AdminFoodItems = () => {
     </>
   );
 }
-// ... (your component logic)
 
-  
   export default AdminFoodItems;

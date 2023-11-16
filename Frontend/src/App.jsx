@@ -34,7 +34,6 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/adminFood" element={<AdminFoodItems />} />
-                {/* <Route path="/menuItems" element={}></Route> */}
               </Routes>
             </AdminContextProvider>
           </>
