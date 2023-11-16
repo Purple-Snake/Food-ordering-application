@@ -27,6 +27,18 @@ function FoodItems({ foodItems }) {
     }
   }
 
+  function confirm(id) {
+    let editBtn = document.getElementById(`edit-btn-${id}`);
+    let confirmBtn = document.getElementById(`confirm-btn-${id}`);
+
+    if (confirmBtn.style.display === "none") {
+      confirmBtn.style.display = "block";
+    } else {
+      confirmBtn.style.display = "none";
+      editBtn.style.display = "block";
+    }
+  }
+
   function checkSpicyLevel(spicyNumber) {
     const spicyLvl = [];
     for (let i = 0; i < spicyNumber; i++) {
