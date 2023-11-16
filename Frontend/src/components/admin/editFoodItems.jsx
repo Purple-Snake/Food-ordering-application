@@ -1,28 +1,20 @@
 import spicyIcon from "../../assets/images/svg/pepper-hot-solid.svg";
 import editIcon from "../../assets/images/svg/edit-item.svg";
 import PropTypes from "prop-types";
-import { useContext, useState, useEffect } from "react";
-import { AuthContext } from "../../context/authContext";
 
 function FoodItems({ foodItems }) {
-  const { loggedIn } = useContext(AuthContext);
-
-  const [editingIsOn, setEditingIsOn] = useState(false);
-  useEffect(() => {
-    console.log(editingIsOn);
-  }, [editingIsOn]);
 
   function edit(id) {
     let foodPic = document.querySelector(`.foodItem-pic-${id} img`);
-    let foodName = document.querySelector(`.foodItem-foodName-${id} b`);
-    let foodSpicy = document.querySelector(`.foodItem-spicy-${id} span`);
-    let foodIngr = document.querySelector(`.foodItem-ingr-${id} i`);
-    let foodPrice = document.querySelector(`.foodItem-price-${id} b`);
+    let foodName = document.querySelector(`.foodItem-foodName-${id}`);
+    let foodSpicy = document.querySelector(`.foodItem-spicy-${id}`);
+    let foodIngr = document.querySelector(`.foodItem-ingr-${id}`);
+    let foodPrice = document.querySelector(`.foodItem-price-${id}`);
 
-    foodName.outerHTML = `<input type="text" value=${foodName.innerHTML} />`;
-    foodSpicy.outerHTML = `<input type="text" value=${foodSpicy.innerHTML} />`;
-    foodIngr.outerHTML = `<input type="text" value=${foodIngr.innerHTML} />`;
-    foodPrice.outerHTML = `<input type="text" value=${foodPrice.innerHTML} />`;
+    foodName.outerHTML = `<input type="text" class="w-72" value=${foodName.innerHTML} />`;
+    foodSpicy.outerHTML = `<input type="text" class="w-10" value=${foodSpicy.innerHTML} />`;
+    foodIngr.outerHTML = `<textarea style="width: 100%">${foodIngr.innerHTML}</textarea>`;
+    foodPrice.outerHTML = `<input type="text" class="w-20" value=${foodPrice.innerHTML} />`;
     // foodPic.outerHTML =`<input type=file style="width:100%"></input>`
   }
 
@@ -43,38 +35,33 @@ function FoodItems({ foodItems }) {
             <div className={`foodItem-pic-${foodItem.id}`}></div>
           </div>
           <div className="nameContainer">
-            <div className="name flex text-3xl m-1">
-              <div className={`foodItem-foodName-${foodItem.id}`}>
+            <div className="name text-3xl m-1">
+              <div>
                 Name:
-                  <b> {foodItem.foodName}</b>
+                <span className={`foodItem-foodName-${foodItem.id}`}>{foodItem.foodName}</span>
               </div>
-              <div className={`foodItem-spicy-${foodItem.id}`}>
+              <div>
                 Spice:
-                <span className="spicyLvlContainer flex">
+                <span className={`foodItem-spicy-${foodItem.id}`}>
                   {foodItem.spicyLevel}
                 </span>
               </div>
             </div>
             <div className="ingredients text-lg m-1 max-w-sm">
-              <div className={`foodItem-ingr-${foodItem.id}`}>
-                <i>{foodItem.ingredients}</i>
+              <div>
+                <i className={`foodItem-ingr-${foodItem.id}`}>{foodItem.ingredients}</i>
               </div>
             </div>
           </div>
-            <div className="foodPrice text-3xl items-center">
-              <div className={`foodItem-price-${foodItem.id}`}>
-                <b>{foodItem.price}€</b>
-              </div>
+          <div className="foodPrice text-3xl items-center">
+            <div>
+              <b className={`foodItem-price-${foodItem.id}`}>{foodItem.price}</b>€
             </div>
-              <button
-                className="editFoodItemBtn"
-                onClick={() => edit(foodItem.id)}>
-                <img
-                  src={editIcon}
-                  alt="Edit Item"
-                  className="icon editItemIcon"/>
-              </button>
           </div>
+          <button className="editFoodItemBtn" onClick={() => edit(foodItem.id)}>
+            <img src={editIcon} alt="Edit Item" className="icon editItemIcon" />
+          </button>
+        </div>
       ))}
     </>
   );

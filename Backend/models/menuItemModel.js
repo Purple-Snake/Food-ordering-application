@@ -30,6 +30,7 @@ const menuSchema = new mongoose.Schema({
     },
     spicyLevel: {
         type: Number,
+        require: true,
         default: 0
     }
 });
