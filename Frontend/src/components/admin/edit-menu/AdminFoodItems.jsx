@@ -1,6 +1,6 @@
 import FoodItems from "./editFoodItems";
 import { useContext } from "react";
-import { ShopContext } from "../../context/ShopContext";
+import { ShopContext } from "../../../context/ShopContext";
 
 const AdminFoodItems = () => {
 

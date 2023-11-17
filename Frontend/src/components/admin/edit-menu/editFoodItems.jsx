@@ -1,4 +1,4 @@
-import spicyIcon from "../../assets/images/svg/pepper-hot-solid.svg";
+// import spicyIcon from "../../assets/images/svg/pepper-hot-solid.svg";
 import editIcon from "../../assets/images/svg/edit-item.svg";
 import PropTypes from "prop-types";
 
@@ -7,7 +7,7 @@ function FoodItems({ foodItems }) {
     let editBtn = document.getElementById(`edit-btn-${id}`);
     let confirmBtn = document.getElementById(`confirm-btn-${id}`);
 
-    let foodPic = document.querySelector(`.foodItem-pic-${id} img`);
+    // let foodPic = document.querySelector(`.foodItem-pic-${id} img`);
     let foodName = document.querySelector(`.foodItem-foodName-${id}`);
     let foodSpicy = document.querySelector(`.foodItem-spicy-${id}`);
     let foodIngr = document.querySelector(`.foodItem-ingr-${id}`);
@@ -39,15 +39,15 @@ function FoodItems({ foodItems }) {
     }
   }
 
-  function checkSpicyLevel(spicyNumber) {
-    const spicyLvl = [];
-    for (let i = 0; i < spicyNumber; i++) {
-      spicyLvl.push(
-        <img src={spicyIcon} alt="spicy!" key={i} className="spicyIcon" />
-      );
-    }
-    return spicyLvl;
-  }
+  // function checkSpicyLevel(spicyNumber) {
+  //   const spicyLvl = [];
+  //   for (let i = 0; i < spicyNumber; i++) {
+  //     spicyLvl.push(
+  //       <img src={spicyIcon} alt="spicy!" key={i} className="spicyIcon" />
+  //     );
+  //   }
+  //   return spicyLvl;
+  // }
   return (
     <>
       {foodItems.map((foodItem) => (
