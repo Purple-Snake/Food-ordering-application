@@ -1,5 +1,5 @@
 // import spicyIcon from "../../assets/images/svg/pepper-hot-solid.svg";
-import editIcon from "../../assets/images/svg/edit-item.svg";
+import editIcon from "../../../assets/images/svg/edit-item.svg";
 import PropTypes from "prop-types";
 
 function FoodItems({ foodItems }) {
