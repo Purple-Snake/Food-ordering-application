@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 function AddMenuItem() {
@@ -8,18 +9,26 @@ function AddMenuItem() {
     const [ spicyLevel, setSpicyLevel ] = useState(0);
     const [ picture, setPicture ] = useState(null)
 
+    // oh the misery the add function does not work.
   async function submitMenuItem(e) {
     e.preventDefault();
 
-    let formData = {
-        foodName,
-        ingredients,
-        foodGroup,
-        price,
-        spicyLevel,
-        picture
-    }
-    console.log(formData);
+    const formData = new FormData();
+    
+    formData.append("foodName", foodName);
+    formData.append("ingredients", ingredients);
+    formData.append("foodGroup", foodGroup);
+    formData.append("price", price);
+    formData.append("spicyLevel", spicyLevel);
+    formData.append("picture", picture[0])
+  
+    // await axios.post("http://localhost:3000/menu/postMenu", formData, {
+    //     headers: { "Content-Type": "multipart/form-data" }
+    // }).then(
+    //     (response) => {console.log(response.data);}
+    // ).catch((error) => {console.log(error);})
+    // console.log("submit button clicked");
+    console.log(picture[0]);
   }
 
   return (
@@ -39,7 +48,7 @@ function AddMenuItem() {
         <option value="2">2</option>
         <option value="3">3</option>
       </select>
-      <input type="file" accept="image/*" onChange={(e) => setPicture(e.target.value)} />
+      <input type="file" accept="image/*" onChange={(e) => {setPicture(e.target.files)}} />
       <input type="submit" value={"Submit"} />
     </form>
   );
