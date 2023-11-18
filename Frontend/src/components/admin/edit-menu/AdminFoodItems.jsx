@@ -6,7 +6,7 @@ const AdminFoodItems = () => {
 
   const { groupedFood } = useContext(ShopContext)
   return (
-    <div className="edit-container h-[70vh] overflow-y-auto">
+    <div className="edit-container h-[89vh] w-[40rem] overflow-y-auto">
       {Object.keys(groupedFood).map((group) => (
         <div key={group}>
           <div className="foodGroup my-5 overflow-clip h-" id={group}>

@@ -1,8 +1,14 @@
-.order, .selected-order, .orderItems {
+.order,
+.selected-order,
+.orderItems {
     background-color: var(--lightBrown);
 }
 
-.user-name, .order-id, .order-item, .selected-order, .selected-order-items {
+.user-name,
+.order-id,
+.order-item,
+.selected-order,
+.selected-order-items {
     font-family: var(--Font-Inter);
 }
 
@@ -20,4 +26,12 @@
 
 .confirm-panel.active {
     transform: translateY(2rem);
+}
+
+.add-menu-item-input {
+    margin: 0.5rem;
+    background-color: var(--Grey);
+    border-bottom: 2px solid #000;
+    border-radius: 5px;
+    width: 20rem;
 }
