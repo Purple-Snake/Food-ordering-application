@@ -63,7 +63,7 @@ exports.postMenu = async (req, res) => {
           foodName: foodName.trim(),
           ingredients: ingredients.trim(),
           picture: imageName.trim(),
-          price: price,
+          price: price.replace(",", "."),
           foodGroup: foodGroup.trim(),
           spicyLevel: spicyLevel,
         })
