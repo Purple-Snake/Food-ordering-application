@@ -29,17 +29,6 @@ function SelectedOrder() {
               </div>
               <div className="order-id">Order id: {selectedOrder.orderId}</div>
             </div>
-            {/* <div className="orderItems">
-              {Object.entries(selectedOrder.filteredCartItems).map((entry) => {
-                let key = entry[0];
-                let value = entry[1];
-                return (
-                  <div className="order-item" key={key}>
-                    {key}: {value}
-                  </div>
-                );
-              })}
-            </div> */}
             <div className="absolute bottom-32">
               Total price: {selectedOrder.totalAmount}€
             </div>

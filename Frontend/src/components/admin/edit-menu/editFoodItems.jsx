@@ -1,6 +1,7 @@
 // import spicyIcon from "../../assets/images/svg/pepper-hot-solid.svg";
 import editIcon from "../../../assets/images/svg/edit-item.svg";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 function FoodItems({ foodItems }) {
   function edit(id) {
@@ -37,6 +38,14 @@ function FoodItems({ foodItems }) {
       confirmBtn.style.display = "none";
       editBtn.style.display = "block";
     }
+  }
+
+  async function deleteItem(objectId) {
+      try {
+        await axios.delete(`http://localhost:3000/menu/deleteMenuItem/${objectId}`)
+      } catch (error) {
+        console.log(error);
+      }
   }
 
   // function checkSpicyLevel(spicyNumber) {
@@ -103,6 +112,9 @@ function FoodItems({ foodItems }) {
             >
               <img className="icon" src="" alt="confirm" />
             </button>
+          </div>
+          <div className="delete-btn-container">
+            <button onClick={() => deleteItem(foodItem._id)}>Delete</button>
           </div>
         </div>
       ))}

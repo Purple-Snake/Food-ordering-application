@@ -56,6 +56,7 @@ export const ShopContextProvider = ({ children }) => {
   };
 
   const contextValue = {
+    getTheMenu,
     cartItems,
     addToCart,
     removeFromCart,

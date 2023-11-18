@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 function AdminNav() {
     return ( 
         <div>
-            <Link></Link>
+            <Link to={"/adminFood"}>
+                <div>Admin Food</div>
+            </Link>
         </div>
      );
 }
