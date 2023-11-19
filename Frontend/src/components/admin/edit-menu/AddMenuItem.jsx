@@ -36,7 +36,7 @@ function AddMenuItem() {
   }
 
   return (
-    <form onSubmit={submitMenuItem} className="bg-slate-700 w-[50rem] p-10">
+    <form onSubmit={submitMenuItem} className="bg-slate-700 w-[34rem] min-h-fit mt-10 m-auto p-10">
       <label htmlFor="food-name">Name:</label>
       <input
         className="add-menu-item-input"
@@ -60,11 +60,11 @@ function AddMenuItem() {
       <input type="text" className="add-menu-item-input" onChange={(e) => setFoodGroup(e.target.value)} />
       <br />
       <label htmlFor="food-price">Price:</label>
-      <input type="text" className="add-menu-item-input" onChange={(e) => setPrice(e.target.value)} />
+      <input type="text" className="add-menu-item-input w-20" maxLength={4} onChange={(e) => setPrice(e.target.value)} />
       <br />
       <label htmlFor="spicy-lvl-select">spiciness:</label>
       <select
-        className="add-menu-item-input"
+        className="add-menu-item-input w-10"
         name="spicy-lvl"
         id="spicy-lvl-select"
         onChange={(e) => setSpicyLevel(e.target.value)}
