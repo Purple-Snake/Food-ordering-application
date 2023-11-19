@@ -18,10 +18,10 @@ function FoodItems({ foodItems }) {
     let foodIngr = document.querySelector(`.foodItem-ingr-${id}`);
     let foodPrice = document.querySelector(`.foodItem-price-${id}`);
 
-    foodName.outerHTML = `<input type="text" class="w-72" value=${foodName.innerHTML} />`;
-    foodSpicy.outerHTML = `<input type="text" class="w-10" value=${foodSpicy.innerHTML} />`;
-    foodIngr.outerHTML = `<textarea style="width: 100%">${foodIngr.innerHTML}</textarea>`;
-    foodPrice.outerHTML = `<input type="text" class="w-20" value=${foodPrice.innerHTML} />`;
+    foodName.outerHTML = `<input type="text" class="w-72 input-foodName-${id}" value=${foodName.innerHTML} />`;
+    foodSpicy.outerHTML = `<input type="text" class="w-10 input-spicy-${id}" value=${foodSpicy.innerHTML} />`;
+    foodIngr.outerHTML = `<textarea style="width: 100%" class="input-ingredients-${id}">${foodIngr.innerHTML}</textarea>`;
+    foodPrice.outerHTML = `<input type="text" class="w-20 input-price-${id}" value=${foodPrice.innerHTML} />`;
     // foodPic.outerHTML =`<input type=file style="width:100%"></input>`
 
     if (editBtn.style.display === "none") {
@@ -32,9 +32,34 @@ function FoodItems({ foodItems }) {
     }
   }
 
-  function confirm(id) {
+  function confirm(id, objectId) {
     let editBtn = document.getElementById(`edit-btn-${id}`);
     let confirmBtn = document.getElementById(`confirm-btn-${id}`);
+
+    let foodName = document.querySelector(`.input-foodName-${id}`);
+    let foodSpicy = document.querySelector(`.input-spicy-${id}`);
+    let foodIngr = document.querySelector(`.input-ingredients-${id}`);
+    let foodPrice = document.querySelector(`.input-price-${id}`);
+
+    let newPatch = {
+      _id: objectId,
+      foodName: foodName.value,
+      ingredients: foodIngr.innerHTML,
+      price: foodPrice.value,
+      spicyLevel: foodSpicy.value
+    }
+    console.log(newPatch);
+
+    try {
+      axios.patch("http://localhost:3000/menu/updateMenuItem", newPatch)
+    } catch (error) {
+      console.log(error);
+    }
+
+    // foodName.outerHTML = `<span className="foodItem-foodName-${foodItem.id}">${foodName.innerHTML}</span>`
+    // foodSpicy.outerHTML = 
+    // foodIngr.outerHTML = 
+    // foodPrice.outerHTML = 
 
     if (confirmBtn.style.display === "none") {
       confirmBtn.style.display = "block";
@@ -113,7 +138,7 @@ function FoodItems({ foodItems }) {
               className="opt-btn"
               id={`confirm-btn-${foodItem.id}`}
               style={{ display: "none" }}
-              onClick={() => confirm(foodItem.id)}
+              onClick={() => confirm(foodItem.id , foodItem._id)}
             >
               <img className="icon" src="" alt="confirm" />
             </button>
