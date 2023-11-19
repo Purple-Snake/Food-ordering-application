@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ShopContext } from "../../../context/ShopContext";
 
 function AddMenuItem() {
-  const { fetchMenuData } = useContext(ShopContext) 
+  const { fetchMenuData } = useContext(ShopContext);
 
   const [foodName, setFoodName] = useState("");
   const [ingredients, setIngredtients] = useState("");

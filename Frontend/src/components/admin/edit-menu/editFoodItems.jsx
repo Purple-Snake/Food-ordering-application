@@ -2,8 +2,12 @@
 import editIcon from "../../../assets/images/svg/edit-item.svg";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { useContext } from "react";
+import { ShopContext } from "../../../context/ShopContext";
 
 function FoodItems({ foodItems }) {
+  const { fetchMenuData } = useContext(ShopContext);
+
   function edit(id) {
     let editBtn = document.getElementById(`edit-btn-${id}`);
     let confirmBtn = document.getElementById(`confirm-btn-${id}`);
@@ -43,6 +47,7 @@ function FoodItems({ foodItems }) {
   async function deleteItem(objectId) {
       try {
         await axios.delete(`http://localhost:3000/menu/deleteMenuItem/${objectId}`)
+        fetchMenuData()
       } catch (error) {
         console.log(error);
       }
