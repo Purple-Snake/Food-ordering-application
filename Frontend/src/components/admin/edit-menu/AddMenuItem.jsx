@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { useContext } from "react";
+import { ShopContext } from "../../../context/ShopContext";
 
 function AddMenuItem() {
+  const { fetchMenuData } = useContext(ShopContext) 
+
   const [foodName, setFoodName] = useState("");
   const [ingredients, setIngredtients] = useState("");
   const [foodGroup, setFoodGroup] = useState("");
@@ -9,8 +13,7 @@ function AddMenuItem() {
   const [spicyLevel, setSpicyLevel] = useState(0);
   const [picture, setPicture] = useState(null);
 
-  // oh the misery the add function does not work.
-  // It works now.
+
   async function submitMenuItem(e) {
     e.preventDefault();
 
@@ -23,16 +26,15 @@ function AddMenuItem() {
     formData.append("spicyLevel", spicyLevel);
     formData.append("picture", picture[0]);
 
-    await axios
-      .post("http://localhost:3000/menu/postMenu", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      await axios
+        .post("http://localhost:3000/menu/postMenu", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        fetchMenuData()
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
