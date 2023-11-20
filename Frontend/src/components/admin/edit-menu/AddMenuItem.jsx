@@ -104,7 +104,7 @@ function AddMenuItem() {
           }}
         />
         <br />
-        <input type="submit" value={"Add menu item"} />
+        <input type="submit" className="add-submit bg-slate-200 mt-3 p-1 rounded-md" value={"Add menu item"} />
       </form>
           <div className={`message w-fit bottom-0 left-20 p-5 rounded-md absolute
             ${messagePanel ? "active" : ""}
