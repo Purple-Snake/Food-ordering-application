@@ -16,11 +16,13 @@ function FoodItems({ foodItems }) {
 
     // let foodPic = document.querySelector(`.foodItem-pic-${id} img`);
     let foodName = document.querySelector(`.foodItem-foodName-${id}`);
+    let foodGroup = document.querySelector(`.foodItem-group-${id}`);
     let foodSpicy = document.querySelector(`.foodItem-spicy-${id}`);
     let foodIngr = document.querySelector(`.foodItem-ingr-${id}`);
     let foodPrice = document.querySelector(`.foodItem-price-${id}`);
 
     foodName.outerHTML = `<input type="text" class="w-72 input-foodName-${id} edit-menu-item-input" value=${foodName.innerHTML} />`;
+    foodGroup.outerHTML = `<input type="text" class="w-72 input-foodGroup-${id} edit-menu-item-input" value=${foodGroup.innerHTML} />`
     foodSpicy.outerHTML = `<input type="text" class="w-10 input-spicy-${id} edit-menu-item-input" value=${foodSpicy.innerHTML} />`;
     foodIngr.outerHTML = `<textarea style="width: 100%" class="input-ingredients-${id} edit-menu-item-input">${foodIngr.innerHTML}</textarea>`;
     foodPrice.outerHTML = `<input type="text" class="w-20 input-price-${id} edit-menu-item-input" value=${foodPrice.innerHTML} />`;
@@ -39,6 +41,7 @@ function FoodItems({ foodItems }) {
     let confirmBtn = document.getElementById(`confirm-btn-${id}`);
 
     let foodName = document.querySelector(`.input-foodName-${id}`);
+    let foodGroup = document.querySelector(`.input-foodGroup-${id}`);
     let foodSpicy = document.querySelector(`.input-spicy-${id}`);
     let foodIngr = document.querySelector(`.input-ingredients-${id}`);
     let foodPrice = document.querySelector(`.input-price-${id}`);
@@ -46,6 +49,7 @@ function FoodItems({ foodItems }) {
     let newPatch = {
       _id: objectId,
       foodName: foodName.value,
+      foodGroup: foodGroup.value,
       ingredients: foodIngr.value,
       price: foodPrice.value,
       spicyLevel: foodSpicy.value,
@@ -90,10 +94,15 @@ function FoodItems({ foodItems }) {
             <div className={`foodItem-pic-${foodItem.id}`}></div>
           </div>
           <div className="">
-            <div className="name text-3xl edit-menu-item w-fit">
+            <div className=" text-3xl edit-menu-item w-fit">
               Name:
               <span className={`foodItem-foodName-${foodItem.id}`}>
                 {foodItem.foodName}
+              </span>
+            </div>
+            <div className="text-3xl edit-menu-item">
+              <span className={`foodItem-group-${foodItem.id}`}>
+                {foodItem.foodGroup}
               </span>
             </div>
             <div className="text-3xl edit-menu-item">
@@ -103,9 +112,9 @@ function FoodItems({ foodItems }) {
               </span>
             </div>
             <div className="foodPrice text-3xl items-center edit-menu-item">
-              <b className={`foodItem-price-${foodItem.id}`}>
+              <span className={`foodItem-price-${foodItem.id}`}>
                 {foodItem.price}
-              </b>
+              </span>
               €
             </div>
             <div className="ingredients text-lg m-1 max-w-sm edit-menu-item">
