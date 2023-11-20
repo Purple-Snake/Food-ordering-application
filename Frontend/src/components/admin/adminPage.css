@@ -1,7 +1,7 @@
 .order,
 .selected-order,
 .orderItems {
-    background-color: var(--lightBrown);
+    background-color: var(--Secondary);
 }
 
 .user-name,
@@ -15,6 +15,10 @@
 .order-list-container {
     overflow-y: auto;
     max-height: 86vh;
+}
+
+.adm-nav-btn:hover {
+    background-color: var(--Primary);
 }
 
 .confirm-panel {

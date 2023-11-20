@@ -1,6 +1,6 @@
 :root {
-  --DarkBrown: #bbbcbd;
-  --lightBrown: #d1d5db;
+  --Primary: #bbbcbd;
+  --Secondary: #d1d5db;
   --lightPinkBrown: #c3c8d4;
   --White: #fff;
   --Grey: #d9d9d9;
@@ -10,11 +10,11 @@
 
 /* Colors */
 .sidePanel, .mobileCartBtn, .cartItems {
-  background-color: var(--DarkBrown);
+  background-color: var(--Primary);
 }
 
 .foodList, .foodGroupButton, .paymentContainer, .login, .register, .modal-content {
-  background-color: var(--lightBrown);
+  background-color: var(--Secondary);
 }
 
 .foodGroup {
@@ -36,5 +36,5 @@
 }
 
 .foodGroupButton:hover, .order:hover {
-  background-color: var(--DarkBrown);
+  background-color: var(--Primary);
 }
