@@ -1,7 +1,7 @@
 // import spicyIcon from "../../assets/images/svg/pepper-hot-solid.svg";
 import editIcon from "../../../assets/images/svg/edit-item.svg";
 import trashIcon from "../../../assets/images/svg/trash-can-solid.svg";
-import confirmIcon from "../../../assets/images/svg/square-check-solid.svg"
+import confirmIcon from "../../../assets/images/svg/square-check-solid.svg";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { useContext } from "react";
@@ -20,10 +20,10 @@ function FoodItems({ foodItems }) {
     let foodIngr = document.querySelector(`.foodItem-ingr-${id}`);
     let foodPrice = document.querySelector(`.foodItem-price-${id}`);
 
-    foodName.outerHTML = `<input type="text" class="w-72 input-foodName-${id}" value=${foodName.innerHTML} />`;
-    foodSpicy.outerHTML = `<input type="text" class="w-10 input-spicy-${id}" value=${foodSpicy.innerHTML} />`;
-    foodIngr.outerHTML = `<textarea style="width: 100%" class="input-ingredients-${id}">${foodIngr.innerHTML}</textarea>`;
-    foodPrice.outerHTML = `<input type="text" class="w-20 input-price-${id}" value=${foodPrice.innerHTML} />`;
+    foodName.outerHTML = `<input type="text" class="w-72 input-foodName-${id} edit-menu-item-input" value=${foodName.innerHTML} />`;
+    foodSpicy.outerHTML = `<input type="text" class="w-10 input-spicy-${id} edit-menu-item-input" value=${foodSpicy.innerHTML} />`;
+    foodIngr.outerHTML = `<textarea style="width: 100%" class="input-ingredients-${id} edit-menu-item-input">${foodIngr.innerHTML}</textarea>`;
+    foodPrice.outerHTML = `<input type="text" class="w-20 input-price-${id} edit-menu-item-input" value=${foodPrice.innerHTML} />`;
     // foodPic.outerHTML =`<input type=file style="width:100%"></input>`
 
     if (editBtn.style.display === "none") {
@@ -85,46 +85,43 @@ function FoodItems({ foodItems }) {
   return (
     <>
       {foodItems.map((foodItem) => (
-        <div className="foodMenuItem md:flex p-10" key={foodItem.id}>
+        <div className="foodMenuItem md:flex p-10 relative" key={foodItem.id}>
           <div>
             <div className={`foodItem-pic-${foodItem.id}`}></div>
           </div>
-          <div className="name text-3xl m-1">
-            <div>
+          <div className="">
+            <div className="name text-3xl edit-menu-item w-fit">
               Name:
               <span className={`foodItem-foodName-${foodItem.id}`}>
                 {foodItem.foodName}
               </span>
-              <div>
-                Spice:
-                <span className={`foodItem-spicy-${foodItem.id}`}>
-                  {foodItem.spicyLevel}
-                </span>
-              </div>
             </div>
-            <div className="ingredients text-lg m-1 max-w-sm">
-              <div>
-                <i className={`foodItem-ingr-${foodItem.id}`}>
-                  {foodItem.ingredients}
-                </i>
-              </div>
+            <div className="text-3xl edit-menu-item">
+              spiciness:
+              <span className={`foodItem-spicy-${foodItem.id}`}>
+                {foodItem.spicyLevel}
+              </span>
             </div>
-          </div>
-          <div className="foodPrice text-3xl items-center">
-            <div>
+            <div className="foodPrice text-3xl items-center edit-menu-item">
               <b className={`foodItem-price-${foodItem.id}`}>
                 {foodItem.price}
               </b>
               €
             </div>
+            <div className="ingredients text-lg m-1 max-w-sm edit-menu-item">
+              <i className={`foodItem-ingr-${foodItem.id}`}>
+                {foodItem.ingredients}
+              </i>
+            </div>
           </div>
-          <div className="button-container">
+
+          <div className="button-container flex absolute right-0">
             <button
               className="opt-btn"
               id={`edit-btn-${foodItem.id}`}
               onClick={() => edit(foodItem.id)}
             >
-              <img className="icon" src={editIcon} alt="edit" />
+              <img className="edit-icon" src={editIcon} alt="edit" />
             </button>
             <button
               className="opt-btn"
@@ -132,13 +129,14 @@ function FoodItems({ foodItems }) {
               style={{ display: "none" }}
               onClick={() => confirm(foodItem.id, foodItem._id)}
             >
-              <img className="icon" src={confirmIcon} alt="confirm" />
+              <img className="edit-icon" src={confirmIcon} alt="confirm" />
             </button>
-          </div>
-          <div className="delete-btn-container">
-            <button onClick={() => deleteItem(foodItem._id)}>
-              <img src={trashIcon} alt="Delete" className="icon" />
-            </button>
+
+            <div className="delete-btn-container flex">
+              <button onClick={() => deleteItem(foodItem._id)}>
+                <img src={trashIcon} alt="Delete" className="edit-icon" />
+              </button>
+            </div>
           </div>
         </div>
       ))}
