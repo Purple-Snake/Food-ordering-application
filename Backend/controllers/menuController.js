@@ -39,6 +39,10 @@ exports.postMenu = async (req, res) => {
           return res.status(400).json({ errorMessage: "Need a price" });
         }
 
+        if (typeof price == "string") {
+          return res.status(400).json({ errorMessage: "Price needs to be a number" })
+        }
+
         if (!foodGroup) {
           return res.status(400).json({ errorMessage: "Need a food group" });
         }
