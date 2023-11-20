@@ -39,8 +39,18 @@ exports.postMenu = async (req, res) => {
           return res.status(400).json({ errorMessage: "Need a price" });
         }
 
+        if (typeof price == "string") {
+          return res.status(400).json({ errorMessage: "Price needs to be a number" })
+        }
+
         if (!foodGroup) {
           return res.status(400).json({ errorMessage: "Need a food group" });
+        }
+
+        const existingItem = await Menu.findOne( {foodName: foodName.trim()} );
+        
+        if (existingItem) {
+            return res.status(400).json({ errorMessage: "An Item with the same name already exists" })
         }
 
         let id = "";
@@ -52,17 +62,17 @@ exports.postMenu = async (req, res) => {
           );
         }
 
-        await Menu.create({
+        const newItem = await Menu.create( {
           id: id,
-          foodName: foodName,
-          ingredients: ingredients,
-          picture: imageName,
-          price: price,
-          foodGroup: foodGroup,
+          foodName: foodName.trim(),
+          ingredients: ingredients.trim(),
+          picture: imageName.trim(),
+          price: price.replace(",", "."),
+          foodGroup: foodGroup.trim(),
           spicyLevel: spicyLevel,
-        });
+        })
 
-        res.status(200).json({ message: "Menu item created." });
+        return res.status(200).json({ message: "Menu item created." });
       } else {
         res.status(401).json({ errorMessage: "unauthorized user" });
       }
@@ -117,11 +127,11 @@ exports.updateMenuItem = async (req, res) => {
           { _id: _id },
           {
             $set: {
-              foodName: foodName,
-              ingredients: ingredients,
-              price: price,
-              foodGroup: foodGroup,
-              spicyLevel: spicyLevel,
+              foodName: foodName.trim(),
+              ingredients: ingredients.trim(),
+              price: price.trim(),
+              foodGroup: foodGroup.trim(),
+              spicyLevel: spicyLevel.trim(),
             },
           },
           { new: true }

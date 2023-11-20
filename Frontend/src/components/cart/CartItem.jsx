@@ -12,13 +12,13 @@ function CartItem({ cartItem }) {
       <div>
         <img
           src={`/images/${cartItem.picture}`}
-          alt={cartItem.name}
+          alt={cartItem.foodName}
           className="cartFoodImage rounded-md max-md:w-full"
         />
       </div>
       <div className="nameContainer">
         <div className="name flex text-3xl m-1">
-          <b>{cartItem.name}</b>
+          <b>{cartItem.foodName}</b>
           <span className="spicyLvlContainer flex">
             {/* {checkSpicyLevel(cartItem.spicyLevel)} */}
           </span>

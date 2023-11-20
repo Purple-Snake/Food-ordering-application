@@ -1,7 +1,7 @@
 :root {
-  --DarkBrown: #7D5A50;
-  --lightBrown: #B4846C;
-  --lightPinkBrown: #E5B299;
+  --Primary: #bbbcbd;
+  --Secondary: #d1d5db;
+  --lightPinkBrown: #c3c8d4;
   --White: #fff;
   --Grey: #d9d9d9;
   --Font-Inter: 'Inter', sans-serif;
@@ -9,12 +9,12 @@
 }
 
 /* Colors */
-.navBar, .sidePanel, .mobileCartBtn, .cartItems {
-  background-color: var(--DarkBrown);
+.sidePanel, .mobileCartBtn, .cartItems {
+  background-color: var(--Primary);
 }
 
 .foodList, .foodGroupButton, .paymentContainer, .login, .register, .modal-content {
-  background-color: var(--lightBrown);
+  background-color: var(--Secondary);
 }
 
 .foodGroup {
@@ -36,5 +36,5 @@
 }
 
 .foodGroupButton:hover, .order:hover {
-  background-color: var(--DarkBrown);
+  background-color: var(--Primary);
 }

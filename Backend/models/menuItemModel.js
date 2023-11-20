@@ -10,6 +10,7 @@ const menuSchema = new mongoose.Schema({
     foodName: {
         type: String,
         required: true,
+        unique: true
     },
     ingredients: {
         type: String,
@@ -29,6 +30,7 @@ const menuSchema = new mongoose.Schema({
     },
     spicyLevel: {
         type: Number,
+        require: true,
         default: 0
     }
 });

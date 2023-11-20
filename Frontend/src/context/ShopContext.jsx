@@ -55,6 +55,16 @@ export const ShopContextProvider = ({ children }) => {
     setCartItems((prev) => ({ ...prev, [foodName]: prev[foodName] - 1 }));
   };
 
+  const fetchMenuData = async () => {
+    try {
+      await getTheMenu();
+      const grouped = _.groupBy(menuData, "foodGroup");
+      setGroupedFood(grouped);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const contextValue = {
     cartItems,
     addToCart,
@@ -63,6 +73,7 @@ export const ShopContextProvider = ({ children }) => {
     groupedFood,
     menuData,
     itemCount,
+    fetchMenuData
   };
 
   return (
