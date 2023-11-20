@@ -21,12 +21,12 @@ function FoodItems({ foodItems }) {
     let foodIngr = document.querySelector(`.foodItem-ingr-${id}`);
     let foodPrice = document.querySelector(`.foodItem-price-${id}`);
 
-    foodName.outerHTML = `<input type="text" class="w-72 input-foodName-${id} edit-menu-item-input" value=${foodName.innerHTML} />`;
-    foodGroup.outerHTML = `<input type="text" class="w-72 input-foodGroup-${id} edit-menu-item-input" value=${foodGroup.innerHTML} />`
-    foodSpicy.outerHTML = `<input type="text" class="w-10 input-spicy-${id} edit-menu-item-input" value=${foodSpicy.innerHTML} />`;
+    foodName.outerHTML = `<input type="text" class="w-72 input-foodName-${id} edit-menu-item-input" value="${foodName.innerHTML}" />`;
+    foodGroup.outerHTML = `<input type="text" class="w-72 input-foodGroup-${id} edit-menu-item-input" value="${foodGroup.innerHTML}" />`;
+    foodSpicy.outerHTML = `<input type="text" class="w-10 input-spicy-${id} edit-menu-item-input" value="${foodSpicy.innerHTML}" />`;
     foodIngr.outerHTML = `<textarea style="width: 100%" class="input-ingredients-${id} edit-menu-item-input">${foodIngr.innerHTML}</textarea>`;
-    foodPrice.outerHTML = `<input type="text" class="w-20 input-price-${id} edit-menu-item-input" value=${foodPrice.innerHTML} />`;
-    // foodPic.outerHTML =`<input type=file style="width:100%"></input>`
+    foodPrice.outerHTML = `<input type="text" class="w-20 input-price-${id} edit-menu-item-input" value="${foodPrice.innerHTML}" />`;
+    // foodPic.outerHTML =`<input type=file style="width:100%">`
 
     if (editBtn.style.display === "none") {
       editBtn.style.display = "block";
