@@ -123,11 +123,11 @@ exports.updateMenuItem = async (req, res) => {
           { _id: _id },
           {
             $set: {
-              foodName: foodName,
-              ingredients: ingredients,
-              price: price,
-              foodGroup: foodGroup,
-              spicyLevel: spicyLevel,
+              foodName: foodName.trim(),
+              ingredients: ingredients.trim(),
+              price: price.trim(),
+              foodGroup: foodGroup.trim(),
+              spicyLevel: spicyLevel.trim(),
             },
           },
           { new: true }
