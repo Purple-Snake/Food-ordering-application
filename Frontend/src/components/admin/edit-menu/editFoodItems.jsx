@@ -34,7 +34,6 @@ function FoodItems({ foodItems }) {
       editBtn.style.display = "none";
       confirmBtn.style.display = "block";
     }
-    console.log("edit");
   }
 
   async function confirm(id, objectId) {
@@ -75,7 +74,6 @@ function FoodItems({ foodItems }) {
       confirmBtn.style.display = "none";
       editBtn.style.display = "block";
     }
-    console.log("clicked confirm");
   }
 
   async function deleteItem(objectId) {
