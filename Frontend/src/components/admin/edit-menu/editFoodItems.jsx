@@ -1,8 +1,10 @@
 // import spicyIcon from "../../assets/images/svg/pepper-hot-solid.svg";
 import editIcon from "../../../assets/images/svg/edit-item.svg";
+import trashIcon from "../../../assets/images/svg/trash-can-solid.svg";
+import confirmIcon from "../../../assets/images/svg/square-check-solid.svg"
 import PropTypes from "prop-types";
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ShopContext } from "../../../context/ShopContext";
 
 function FoodItems({ foodItems }) {
@@ -48,7 +50,6 @@ function FoodItems({ foodItems }) {
       price: foodPrice.value,
       spicyLevel: foodSpicy.value,
     };
-    console.log(newPatch);
 
     try {
       await axios.patch("http://localhost:3000/menu/updateMenuItem", newPatch);
@@ -131,11 +132,13 @@ function FoodItems({ foodItems }) {
               style={{ display: "none" }}
               onClick={() => confirm(foodItem.id, foodItem._id)}
             >
-              <img className="icon" src="" alt="confirm" />
+              <img className="icon" src={confirmIcon} alt="confirm" />
             </button>
           </div>
           <div className="delete-btn-container">
-            <button onClick={() => deleteItem(foodItem._id)}>Delete</button>
+            <button onClick={() => deleteItem(foodItem._id)}>
+              <img src={trashIcon} alt="Delete" className="icon" />
+            </button>
           </div>
         </div>
       ))}
