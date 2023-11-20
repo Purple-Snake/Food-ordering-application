@@ -2,7 +2,7 @@
 import editIcon from "../../../assets/images/svg/edit-item.svg";
 import PropTypes from "prop-types";
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ShopContext } from "../../../context/ShopContext";
 
 function FoodItems({ foodItems }) {
@@ -32,7 +32,7 @@ function FoodItems({ foodItems }) {
     }
   }
 
-  function confirm(id, objectId) {
+  async function confirm(id, objectId) {
     let editBtn = document.getElementById(`edit-btn-${id}`);
     let confirmBtn = document.getElementById(`confirm-btn-${id}`);
 
@@ -44,22 +44,23 @@ function FoodItems({ foodItems }) {
     let newPatch = {
       _id: objectId,
       foodName: foodName.value,
-      ingredients: foodIngr.innerHTML,
+      ingredients: foodIngr.value,
       price: foodPrice.value,
-      spicyLevel: foodSpicy.value
-    }
+      spicyLevel: foodSpicy.value,
+    };
     console.log(newPatch);
 
     try {
-      axios.patch("http://localhost:3000/menu/updateMenuItem", newPatch)
+      await axios.patch("http://localhost:3000/menu/updateMenuItem", newPatch);
+      fetchMenuData();
     } catch (error) {
       console.log(error);
     }
 
     // foodName.outerHTML = `<span className="foodItem-foodName-${foodItem.id}">${foodName.innerHTML}</span>`
-    // foodSpicy.outerHTML = 
-    // foodIngr.outerHTML = 
-    // foodPrice.outerHTML = 
+    // foodSpicy.outerHTML =
+    // foodIngr.outerHTML =
+    // foodPrice.outerHTML =
 
     if (confirmBtn.style.display === "none") {
       confirmBtn.style.display = "block";
@@ -70,23 +71,16 @@ function FoodItems({ foodItems }) {
   }
 
   async function deleteItem(objectId) {
-      try {
-        await axios.delete(`http://localhost:3000/menu/deleteMenuItem/${objectId}`)
-        fetchMenuData()
-      } catch (error) {
-        console.log(error);
-      }
+    try {
+      await axios.delete(
+        `http://localhost:3000/menu/deleteMenuItem/${objectId}`
+      );
+      fetchMenuData();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  // function checkSpicyLevel(spicyNumber) {
-  //   const spicyLvl = [];
-  //   for (let i = 0; i < spicyNumber; i++) {
-  //     spicyLvl.push(
-  //       <img src={spicyIcon} alt="spicy!" key={i} className="spicyIcon" />
-  //     );
-  //   }
-  //   return spicyLvl;
-  // }
   return (
     <>
       {foodItems.map((foodItem) => (
@@ -123,9 +117,6 @@ function FoodItems({ foodItems }) {
               €
             </div>
           </div>
-          {/* <button className="editFoodItemBtn" onClick={() => edit(foodItem.id)}>
-            <img src={editIcon} alt="Edit Item" className="icon editItemIcon" />
-          </button> */}
           <div className="button-container">
             <button
               className="opt-btn"
@@ -138,7 +129,7 @@ function FoodItems({ foodItems }) {
               className="opt-btn"
               id={`confirm-btn-${foodItem.id}`}
               style={{ display: "none" }}
-              onClick={() => confirm(foodItem.id , foodItem._id)}
+              onClick={() => confirm(foodItem.id, foodItem._id)}
             >
               <img className="icon" src="" alt="confirm" />
             </button>
