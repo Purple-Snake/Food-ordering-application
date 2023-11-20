@@ -1,4 +1,3 @@
-// import spicyIcon from "../../assets/images/svg/pepper-hot-solid.svg";
 import editIcon from "../../../assets/images/svg/edit-item.svg";
 import trashIcon from "../../../assets/images/svg/trash-can-solid.svg";
 import confirmIcon from "../../../assets/images/svg/square-check-solid.svg";
@@ -20,10 +19,11 @@ function FoodItems({ foodItems }) {
     let foodSpicy = document.querySelector(`.foodItem-spicy-${id}`);
     let foodIngr = document.querySelector(`.foodItem-ingr-${id}`);
     let foodPrice = document.querySelector(`.foodItem-price-${id}`);
+    console.log(foodName);
 
     foodName.outerHTML = `<input type="text" class="w-72 input-foodName-${id} edit-menu-item-input" value="${foodName.innerHTML}" />`;
     foodGroup.outerHTML = `<input type="text" class="w-72 input-foodGroup-${id} edit-menu-item-input" value="${foodGroup.innerHTML}" />`;
-    foodSpicy.outerHTML = `<input type="text" class="w-10 input-spicy-${id} edit-menu-item-input" value="${foodSpicy.innerHTML}" />`;
+    foodSpicy.outerHTML = `<input type="number" min="0" max="3" class="w-10 input-spicy-${id} edit-menu-item-input" value="${foodSpicy.innerHTML}" />`;
     foodIngr.outerHTML = `<textarea style="width: 100%" class="input-ingredients-${id} edit-menu-item-input">${foodIngr.innerHTML}</textarea>`;
     foodPrice.outerHTML = `<input type="text" class="w-20 input-price-${id} edit-menu-item-input" value="${foodPrice.innerHTML}" />`;
     // foodPic.outerHTML =`<input type=file style="width:100%">`
@@ -34,6 +34,7 @@ function FoodItems({ foodItems }) {
       editBtn.style.display = "none";
       confirmBtn.style.display = "block";
     }
+    console.log("edit");
   }
 
   async function confirm(id, objectId) {
@@ -62,10 +63,11 @@ function FoodItems({ foodItems }) {
       console.log(error);
     }
 
-    // foodName.outerHTML = `<span className="foodItem-foodName-${foodItem.id}">${foodName.innerHTML}</span>`
-    // foodSpicy.outerHTML =
-    // foodIngr.outerHTML =
-    // foodPrice.outerHTML =
+    foodName.outerHTML = `<span class="foodItem-foodName-${id}">${foodName.value}</span>`
+    foodGroup.outerHTML = `<span class="foodItem-group-${id}">${foodGroup.value}</span>`
+    foodSpicy.outerHTML = `<span class="foodItem-spicy-${id}">${foodSpicy.value}</span>`
+    foodIngr.outerHTML = `<i class="foodItem-ingr-${id}">${foodIngr.value}</i>`
+    foodPrice.outerHTML = `<span class="foodItem-price-${id}">${foodPrice.value}</span>`
 
     if (confirmBtn.style.display === "none") {
       confirmBtn.style.display = "block";
@@ -73,6 +75,7 @@ function FoodItems({ foodItems }) {
       confirmBtn.style.display = "none";
       editBtn.style.display = "block";
     }
+    console.log("clicked confirm");
   }
 
   async function deleteItem(objectId) {

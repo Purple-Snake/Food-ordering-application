@@ -1,4 +1,4 @@
-import FoodItems from "./editFoodItems";
+import FoodItems from "./EditFoodItems";
 import { useContext } from "react";
 import { ShopContext } from "../../../context/ShopContext";
 
