@@ -9,7 +9,7 @@
 }
 
 /* Colors */
-.sidePanel, .mobileCartBtn, .cartItems {
+.sidePanel, .mobileCartBtn, .cartItems, .Completed-order {
   background-color: var(--Primary);
 }
 
@@ -17,7 +17,7 @@
   background-color: var(--Secondary);
 }
 
-.foodGroup {
+.foodGroup, .go-back-btn {
   background-color: var(--lightPinkBrown);
 }
 

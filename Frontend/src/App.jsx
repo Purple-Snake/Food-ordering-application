@@ -7,6 +7,7 @@ import CartPage from "./components/cart/CartPage";
 import RegisterForm from "./components/login/RegisterFrom";
 import Login from "./components/login/Login";
 import AdminPage from "./components/admin/AdminPage";
+import OrderReceived from "./components/cart/OrderReceived";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import ShopContextProvider from "./context/ShopContext";
@@ -29,7 +30,12 @@ function App() {
               <NavBar />
               <Routes>
                 <Route path="/" element={<Home />} />
-                {loggedIn && <Route path="/cart" element={<CartPage />} />}
+                {loggedIn && (
+                  <>
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route path="/orderCompleted" element={<OrderReceived />} />
+                  </>
+                )}
                 <Route path="/register" element={<RegisterForm />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin" element={<AdminPage />} />
@@ -42,7 +48,12 @@ function App() {
             <NavBar />
             <Routes>
               <Route path="/" element={<Home />} />
-              {loggedIn && <Route path="/cart" element={<CartPage />} />}
+              {loggedIn && (
+                <>
+                  <Route path="/cart" element={<CartPage />} />
+                  <Route path="/orderCompleted" element={<OrderReceived />} />
+                </>
+              )}
               <Route path="/register" element={<RegisterForm />} />
               <Route path="/login" element={<Login />} />
             </Routes>
