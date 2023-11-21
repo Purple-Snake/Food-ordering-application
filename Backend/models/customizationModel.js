@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
-// Colour schema
-const colourSchema = new mongoose.Schema({
+// Customization schema
+const customizationSchema = new mongoose.Schema({
     background_colour: {
         type: String,
     },
     primary_colour: {
         type: String
     },
-    Secondary_colour: {
+    secondary_colour: {
         type: String
     },
     _colour: {
@@ -17,6 +17,6 @@ const colourSchema = new mongoose.Schema({
 });
 
 // User model
-const Colour = mongoose.model("colourCollection", colourSchema);
+const Customization = mongoose.model("customizationCollection", customizationSchema);
 
-module.exports = Colour;
+module.exports = Customization;
