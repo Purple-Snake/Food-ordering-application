@@ -9,7 +9,7 @@
 }
 
 /* Colors */
-.sidePanel, .mobileCartBtn, .cartItems {
+.sidePanel, .mobileCartBtn, .cartItems, .Completed-order {
   background-color: var(--Primary);
 }
 
