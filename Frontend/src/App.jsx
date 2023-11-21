@@ -8,6 +8,7 @@ import RegisterForm from "./components/login/RegisterFrom";
 import Login from "./components/login/Login";
 import AdminPage from "./components/admin/AdminPage";
 import Customization from "./components/admin/colour-customization/Customization-page";
+import OrderReceived from "./components/cart/OrderReceived";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import ShopContextProvider from "./context/ShopContext";
@@ -28,32 +29,38 @@ function App() {
         <CustomizationContextProvider>
           {userRole === "admin" ? (
             <>
-              <AdminContextProvider>
-                <NavBar />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  {loggedIn && <Route path="/cart" element={<CartPage />} />}
-                  <Route path="/register" element={<RegisterForm />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/admin" element={<AdminPage />} />
-                  <Route path="/adminFood" element={<EditMenu />} />
-                  <Route
-                    path="/colourCustomization"
-                    element={<Customization />}
-                  />
-                </Routes>
-              </AdminContextProvider>
-            </>
-          ) : (
-            <>
+            <AdminContextProvider>
               <NavBar />
               <Routes>
                 <Route path="/" element={<Home />} />
-                {loggedIn && <Route path="/cart" element={<CartPage />} />}
+                {loggedIn && (
+                  <>
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route path="/orderCompleted" element={<OrderReceived />} />
+                  </>
+                )}
                 <Route path="/register" element={<RegisterForm />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/adminFood" element={<EditMenu />} />
               </Routes>
-            </>
+            </AdminContextProvider>
+          </>
+          ) : (
+            <>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {loggedIn && (
+                <>
+                  <Route path="/cart" element={<CartPage />} />
+                  <Route path="/orderCompleted" element={<OrderReceived />} />
+                </>
+              )}
+              <Route path="/register" element={<RegisterForm />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </>
           )}
         </CustomizationContextProvider>
       </OrderContextProvider>
