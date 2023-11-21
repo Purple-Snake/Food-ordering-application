@@ -11,28 +11,23 @@ export const CustomizationContextProvider = ({ children }) => {
     let response = await axios.get("http://localhost:3000/custom/getCustomization/")
     response.data.map((entry) => {
       setColourValues(entry)
+      setColours(entry)
     })
   }
 
-  function setColours() {
+  function setColours(entry) {
     const root = document.querySelector(":root")
 
-    root.style.setProperty("--background-color", `${colourValues.background_colour}`)
-    root.style.setProperty("--Primary", `${colourValues.primary_colour}`);
-    root.style.setProperty("--Secondary", `${colourValues.secondary_colour}`)
-    // root.style.setProperty("", `${colourValues._colour}`)
+    root.style.setProperty("--background-color", `${entry.background_colour}`)
+    root.style.setProperty("--Primary", `${entry.primary_colour}`);
+    root.style.setProperty("--Secondary", `${entry.secondary_colour}`)
+    root.style.setProperty("--colourColour", `${entry._colour}`)
   }
 
   useEffect(() => {
-    getColours().then(() => setColours())
+    getColours()
   }, [])  
-
-  useEffect(() => {
-    console.log(colourValues);
-    console.log(colourValues.background_colour);
-  }, [colourValues])
     
-
   const contextValue = {colourValues};
   return (
     <CustomizationContext.Provider value={contextValue}>
