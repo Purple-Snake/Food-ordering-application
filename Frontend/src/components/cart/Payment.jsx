@@ -37,6 +37,11 @@ function Payment() {
           address
       }
       await axios.post("http://localhost:3000/order/submitOrder", orderData)
+      .then(response => {
+        if (response.status == 200) {
+          return (window.location.href = "http://localhost:5173/orderCompleted");
+        }
+      })
     }
 
     if (selfPickUp == true) {
@@ -48,6 +53,11 @@ function Payment() {
         location: locationOpt
     }
     await axios.post("http://localhost:3000/order/submitOrder", orderData)
+    .then(response => {
+      if (response.status == 201) {
+        return (window.location.href = "http://localhost:5173/orderCompleted");
+      }
+    })
     }
     } catch (error) {
       console.log(error);
