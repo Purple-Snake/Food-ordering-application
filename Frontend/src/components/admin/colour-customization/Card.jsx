@@ -1,6 +1,9 @@
-
+import { useContext } from "react";
+import { CustomizationContext } from "../../../context/CustomizationContext";
 
 function Card() {
+    const { colourValues } = useContext(CustomizationContext)
+
     return ( 
         <div>
             <div>
