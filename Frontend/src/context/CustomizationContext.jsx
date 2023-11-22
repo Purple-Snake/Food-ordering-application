@@ -28,7 +28,7 @@ export const CustomizationContextProvider = ({ children }) => {
     getColours()
   }, [])  
     
-  const contextValue = {colourValues};
+  const contextValue = {colourValues, getColours};
   return (
     <CustomizationContext.Provider value={contextValue}>
       {children}

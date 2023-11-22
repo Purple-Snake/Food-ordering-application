@@ -1,12 +1,32 @@
 import { useContext } from "react";
 import { CustomizationContext } from "../../../context/CustomizationContext";
+import axios from "axios";
 
 function Card() {
-  const { colourValues } = useContext(CustomizationContext);
+  const { colourValues, getColours } = useContext(CustomizationContext);
+  const _id = colourValues._id
+
+  async function handleSumbitPatch(e) {
+    e.preventDefault();
+
+    const updatedColours = {_id};
+
+    e.target.querySelectorAll(".colour-input").forEach((input) => {
+      updatedColours[input.id] = input.value;
+    });
+
+
+    try {
+      await axios.patch("http://localhost:3000/custom/updateColours", updatedColours)
+      getColours()
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="custom-colour-panel flex-col m-auto w-[25rem]">
-      <form action="">
+      <form onSubmit={handleSumbitPatch}>
         {Object.entries(colourValues).map((entry) => {
           let key = entry[0];
           let value = entry[1];
