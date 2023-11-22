@@ -28,7 +28,7 @@ exports.updateColours = async (req, res) => {
       }
 
       if (decoded.role === "admin") {
-        let AAA = await Customization.findOneAndUpdate(
+        await Customization.findOneAndUpdate(
           { _id: _id },
           {
             $set: {
@@ -40,7 +40,6 @@ exports.updateColours = async (req, res) => {
           },
           { upsert: true, new: true }
         );
-        console.log(AAA);
         return res.status(200).json({ message: "Colours succesfully updated" });
       } else {
         return res.status(401).json({ errorMessage: "unauthorized user" });

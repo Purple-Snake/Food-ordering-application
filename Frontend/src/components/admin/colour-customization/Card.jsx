@@ -25,7 +25,7 @@ function Card() {
   }
 
   return (
-    <div className="custom-colour-panel flex-col m-auto w-[25rem]">
+    <div className="custom-colour-panel flex-col m-auto mt-[10%] p-5 w-[25rem]">
       <form onSubmit={handleSumbitPatch}>
         {Object.entries(colourValues).map((entry) => {
           let key = entry[0];

@@ -1,10 +1,12 @@
-import "./card.css"
-import Card from "./Card"
+import "./card.css";
+import Card from "./Card";
 
 function CustomizationPage() {
-    return ( 
-        <Card />
-     );
+  return (
+    <div>
+      <Card />
+    </div>
+  );
 }
 
 export default CustomizationPage;
