@@ -1,3 +1,4 @@
+import "./card.css"
 import Card from "./Card"
 
 function CustomizationPage() {

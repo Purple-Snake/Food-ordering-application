@@ -5,23 +5,31 @@ function Card() {
   const { colourValues } = useContext(CustomizationContext);
 
   return (
-    <div>
-      {Object.entries(colourValues).map((entry) => {
-        let key = entry[0];
-        let value = entry[1];
+    <div className="custom-colour-panel flex-col m-auto w-[25rem]">
+      <form action="">
+        {Object.entries(colourValues).map((entry) => {
+          let key = entry[0];
+          let value = entry[1];
 
-                // Exclude ObjectID from rendering
-                if (key === '_id') {
-                  return null;
-                }
-                
-        return (
-          <div key={key}>
-            <label htmlFor={`${key}-colour`}>{key} colour:</label>
-            <input type="text" id={`${key}-colour`} defaultValue={value} />
-          </div>
-        );
-      })}
+          // Exclude ObjectID from rendering
+          if (key === "_id") {
+            return null;
+          }
+
+          return (
+            <div key={key}>
+              <label htmlFor={`${key}`}>{key}:</label>
+              <input
+                className="colour-input"
+                type="text"
+                id={`${key}`}
+                defaultValue={value}
+              />
+            </div>
+          );
+        })}
+        <input type="submit" value="Update colours" />
+      </form>
     </div>
   );
 }

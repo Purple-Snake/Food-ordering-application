@@ -9,6 +9,9 @@ function AdminNav() {
             <Link to="/admin">
                 <div className="adm-nav-btn border-t-2 border-gray-300">Orders</div>
             </Link>
+            <Link to="/colourCustomization">
+                <div className="adm-nav-btn border-t-2 border-gray-300">Colour</div>
+            </Link>
         </div>
      );
 }
