@@ -19,7 +19,7 @@ function FoodGroupButtons({ closeSidePanel, sidePanel }) {
   return (
       <div className="groupButtons flex flex-wrap justify-center max-md:flex-col max-md:overflow-auto max-md:w-screen">
         {Object.keys(groupedFood).map((group) => (
-          <button key={group} className="foodGroupButton max-md:mx-auto max-md:my-6" onClick={() => scrollToFoodGroup(group)}>
+          <button key={group} className="foodGroupButton rounded px-1 w-fit max-md:mx-auto max-md:my-6" onClick={() => scrollToFoodGroup(group)}>
             {group}
           </button>
         ))}
