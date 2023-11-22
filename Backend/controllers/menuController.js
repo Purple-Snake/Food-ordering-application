@@ -119,19 +119,20 @@ exports.updateMenuItem = async (req, res) => {
       }
 
       if (decoded.role === "admin") {
-        await Menu.findOneAndUpdate(
+        let EEE = await Menu.findOneAndUpdate(
           { _id: _id },
           {
             $set: {
               foodName: foodName.trim(),
               ingredients: ingredients.trim(),
-              price: price.trim(),
+              price: price,
               foodGroup: foodGroup.trim(),
-              spicyLevel: spicyLevel.trim(),
+              spicyLevel: spicyLevel,
             },
           },
           { new: true }
         );
+        console.log(EEE);
         res.status(200).json({ message: "Menu item updated successfully" });
       } else {
         res.status(401).json({ errorMessage: "unauthorized user" });

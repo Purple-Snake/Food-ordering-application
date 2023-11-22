@@ -21,7 +21,7 @@ export const CustomizationContextProvider = ({ children }) => {
     root.style.setProperty("--background-color", `${entry.background_colour}`)
     root.style.setProperty("--Primary", `${entry.primary_colour}`);
     root.style.setProperty("--Secondary", `${entry.secondary_colour}`)
-    root.style.setProperty("--colourColour", `${entry._colour}`)
+    root.style.setProperty("--colourColour", `${entry.colour}`)
   }
 
   useEffect(() => {
