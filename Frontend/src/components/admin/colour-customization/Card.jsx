@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import refreshIcon from "../../../assets/images/svg/rotate-right-solid.svg";
 import { CustomizationContext } from "../../../context/CustomizationContext";
 import axios from "axios";
 import "./card.css";
@@ -44,8 +45,37 @@ function Card() {
     }));
   }
 
+  async function resetDefaultColours(e) {
+    e.preventDefault();
+
+    const defaultColours = {
+      _id: _id,
+      background_colour: "#f5f5f5",
+      primary_colour: "#bbbcbd",
+      secondary_colour: "#d1d5db",
+      colour: "#c3c8d4",
+      border_colour: "#d1d5db",
+    };
+
+    try {
+      await axios.patch(
+        "http://localhost:3000/custom/updateColours",
+        defaultColours
+      );
+      console.log(defaultColours);
+      getColours();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="custom-colour-panel flex-col m-auto mt-[10%] p-5 w-[25rem]">
+      <div>
+        <button onClick={(e) => resetDefaultColours(e)}>
+          <img src={refreshIcon} alt="Refresh button" className="w-9" />
+        </button>
+      </div>
       <form onSubmit={handleSumbitPatch}>
         {Object.keys(colourValues).map((key) => {
           if (key === "_id") {
@@ -64,22 +94,32 @@ function Card() {
                 defaultValue={value}
                 onChange={(e) => handleHexChange(key, e.target.value)}
               />
-              <span className="color-preview" style={{width: '20px', height: '20px', padding: '0.3rem', backgroundColor: hexValue[key], border: '1px solid #000', borderRadius: '5px' }}>
+              <span
+                className="color-preview"
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  padding: "0.3rem",
+                  backgroundColor: hexValue[key],
+                  border: "1px solid #000",
+                  borderRadius: "5px",
+                }}
+              >
                 AaBb
               </span>
             </div>
           );
         })}
-        <input 
-        type="submit" 
-        value="Update colours" 
-        style={{
-          border: '1px solid #000',
-          cursor: 'pointer',
-          padding: '0.3rem 0.5rem',
-          borderRadius: '5px',
-        }}
-      />
+        <input
+          type="submit"
+          value="Update colours"
+          style={{
+            border: "1px solid #000",
+            cursor: "pointer",
+            padding: "0.3rem 0.5rem",
+            borderRadius: "5px",
+          }}
+        />
       </form>
     </div>
   );
