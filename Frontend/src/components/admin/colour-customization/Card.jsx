@@ -70,11 +70,12 @@ function Card() {
   }
 
   return (
-    <div className="custom-colour-panel flex-col m-auto mt-[10%] p-5 w-[25rem]">
-      <div>
+    <div className="custom-colour-panel flex-col rounded m-auto mt-[10%] p-5 w-[25rem]">
+      <div className="flex">
         <button onClick={(e) => resetDefaultColours(e)}>
           <img src={refreshIcon} alt="Refresh button" className="w-9" />
         </button>
+        <span className="p-2">Reset colours to default</span>
       </div>
       <form onSubmit={handleSumbitPatch}>
         {Object.keys(colourValues).map((key) => {
