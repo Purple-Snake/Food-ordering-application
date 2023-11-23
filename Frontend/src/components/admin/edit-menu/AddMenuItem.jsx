@@ -79,7 +79,7 @@ function AddMenuItem() {
         <input
           type="text"
           className="add-menu-item-input w-20"
-          maxLength={4}
+          maxLength={6}
           onChange={(e) => setPrice(e.target.value)}
         />
         <br />

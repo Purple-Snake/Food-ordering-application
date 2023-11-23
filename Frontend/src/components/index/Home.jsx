@@ -1,5 +1,5 @@
 import FoodGroupButtons from "./FoodGroupButtons";
-import Menu from "./Menu";
+import Menu from "./FoodGroup";
 
 function Home() {
   return (

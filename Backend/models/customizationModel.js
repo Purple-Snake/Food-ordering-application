@@ -11,7 +11,10 @@ const customizationSchema = new mongoose.Schema({
     secondary_colour: {
         type: String
     },
-    _colour: {
+    colour: {
+        type: String
+    },
+    border_colour: {
         type: String
     }
 });

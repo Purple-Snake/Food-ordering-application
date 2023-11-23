@@ -6,6 +6,10 @@ const customizationRouter = express.Router();
 
 customizationRouter
 .route("/getCustomization")
-.get(customizationController.getCustom)
+.get(customizationController.getCustom);
+
+customizationRouter
+.route("/updateColours")
+.patch(customizationController.updateColours);
 
 module.exports = customizationRouter;

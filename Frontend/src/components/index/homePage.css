@@ -1,7 +1,5 @@
 /* Food Group buttons */
 .foodGroupButton {
-  border-radius: 35px;
-  width: 13rem;
   height: 3rem;
   font-size: 31px;
   margin: 2rem 2rem 1rem 2rem;
@@ -9,7 +7,6 @@
 
 /* Menu */
 .foodGroup {
-  border-radius: 25px;
   font-size: 40px;
 }
 
@@ -29,14 +26,14 @@
   margin-left: 1rem;
   padding: 0.2rem;
   color: #fff;
-  background-color: var(--lightBrown);
-  border-radius: 15px;
+  background-color: var(--Secondary);
+  border-radius: 10px;
   border: 2px solid #000;
   box-shadow: 0 5px #999;
 }
 
 .addToCartBtn:active {
-  background-color: var(--DarkBrown);
+  background-color: var(--Primary);
   box-shadow: 0 2.5px #666;
   transform: translateY(4px);
 }
@@ -57,7 +54,7 @@
   margin: 15% auto;
   width: 40%;
   padding: 2rem;
-  border-radius: 25px;
+  border-radius: 20px;
   color: rgb(0,0,0);
 }
 
