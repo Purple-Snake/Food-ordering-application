@@ -7,7 +7,7 @@ import CartPage from "./components/cart/CartPage";
 import RegisterForm from "./components/login/RegisterFrom";
 import Login from "./components/login/Login";
 import AdminPage from "./components/admin/AdminPage";
-import Customization from "./components/admin/colour-customization/Customization-page";
+import CustomizationPage from "./components/admin/colour-customization/Customization-page";
 import OrderReceived from "./components/cart/OrderReceived";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
@@ -43,6 +43,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/adminFood" element={<EditMenu />} />
+                <Route path="/CustomColours" element={<CustomizationPage />} />
               </Routes>
             </AdminContextProvider>
           </>
