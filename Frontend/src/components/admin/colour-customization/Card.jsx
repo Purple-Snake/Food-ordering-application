@@ -1,24 +1,39 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CustomizationContext } from "../../../context/CustomizationContext";
 import axios from "axios";
 
 function Card() {
   const { colourValues, getColours } = useContext(CustomizationContext);
-  const _id = colourValues._id
+  const [hexValue, setHexValue] = useState("");
+  const _id = colourValues._id;
+
+  // Tried the preview square but doesn't work
+  function handleHexChange(key, hex) {
+    setHexValue((prevHexValue) => ({
+      ...prevHexValue,
+      [key]: hex,
+    }));
+  }
+
+  useEffect(() => {
+    console.log(hexValue);
+  }, [hexValue]);
 
   async function handleSumbitPatch(e) {
     e.preventDefault();
 
-    const updatedColours = {_id};
+    const updatedColours = { _id };
 
     e.target.querySelectorAll(".colour-input").forEach((input) => {
       updatedColours[input.id] = input.value;
     });
 
-
     try {
-      await axios.patch("http://localhost:3000/custom/updateColours", updatedColours)
-      getColours()
+      await axios.patch(
+        "http://localhost:3000/custom/updateColours",
+        updatedColours
+      );
+      getColours();
     } catch (error) {
       console.log(error);
     }
@@ -44,7 +59,12 @@ function Card() {
                 type="text"
                 id={`${key}`}
                 defaultValue={value}
+                maxLength={7}
+                onChange={(e) => handleHexChange(key, e.target.value)}
               />
+              <span className={`w-[20px] h-[20px] bg-[${hexValue[key]}]`}>
+                AAA
+              </span>
             </div>
           );
         })}
