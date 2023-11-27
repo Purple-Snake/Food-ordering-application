@@ -4,7 +4,7 @@ import { AdminContext } from "../../context/AdminContext";
 import axios from "axios";
 
 function SelectedOrder() {
-  const { selectedOrder, orderIsSelected } = useContext(OrderContext);
+  const { selectedOrder, orderIsSelected, setOrderIsSelected } = useContext(OrderContext);
   const { getOrders } = useContext(AdminContext);
   const [confirmPanel, setConfirmPanel] = useState(false);
 
@@ -12,6 +12,7 @@ function SelectedOrder() {
     try {
       await axios.delete(`http://localhost:3000/order/deleteOrder/${selectedOrder._id}`)
       setConfirmPanel(false)
+      setOrderIsSelected(false)
       getOrders()
     } catch (error) {
       console.log(error);

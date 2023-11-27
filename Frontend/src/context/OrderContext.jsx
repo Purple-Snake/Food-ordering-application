@@ -12,7 +12,7 @@ export const OrderContextProvider = ({ children }) => {
         setOrderIsSelected(true)
     }
 
-    const contextValue = {selectOrder, selectedOrder, orderIsSelected}
+    const contextValue = {selectOrder, selectedOrder, orderIsSelected, setOrderIsSelected}
     return (<OrderContext.Provider value={contextValue}>{children}</OrderContext.Provider>)
 }
 
