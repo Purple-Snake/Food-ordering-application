@@ -3,22 +3,18 @@ const JWT = require("jsonwebtoken");
 
 exports.submitOrder = async (req, res) => {
   try {
-    const { cartItems, totalAmount, delivery, selfPickUp, address, location } =
+    const { cartItems, totalAmount, delivery, address } =
       req.body;
     const token = req.cookies.token;
 
     if (
       !cartItems ||
       !totalAmount ||
-      delivery === undefined ||
-      selfPickUp === undefined
-    ) {
+      delivery === undefined) {
       return (
         res
           .status(400)
-          .json({ errorMessage: "Please enter all required fields" }),
-        console.log(cartItems, totalAmount, delivery, pickUp, address, location)
-      );
+          .json({ errorMessage: "Please enter all required fields" }));
     }
 
     JWT.verify(token, process.env.JWT_Secret, (err, decoded) => {
@@ -52,21 +48,7 @@ exports.submitOrder = async (req, res) => {
           filteredCartItems,
           totalAmount,
           delivery,
-          selfPickUp,
           address,
-        });
-        order.save();
-      }
-
-      if (selfPickUp == true) {
-        const order = new Order({
-          orderId,
-          userName,
-          filteredCartItems,
-          totalAmount,
-          delivery,
-          selfPickUp,
-          location,
         });
         order.save();
       }
