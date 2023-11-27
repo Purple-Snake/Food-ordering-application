@@ -18,15 +18,9 @@ const orderSchema = new mongoose.Schema({
     delivery: {
         type: Boolean
     },
-    selfPickUp: {
-        type: Boolean
-    },
     address : {
         type: String
     },
-    location: {
-        type: String
-    }
 });
 
 const Order = mongoose.model("orderCollection", orderSchema);

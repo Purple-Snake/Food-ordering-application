@@ -5,9 +5,7 @@ import axios from "axios";
 
 function Payment() {
   const [ delivery, setDelivery ] = useState(false)
-  const [ selfPickUp, setSelfPickUp ] = useState(false)
   const [ address, setAddress ] = useState("")
-  const [ locationOpt, setLocationOpt ] = useState("location 1")
   const { cartItems, getTotalAmount } = useContext(ShopContext);
 
   const totalAmount = getTotalAmount()
@@ -15,13 +13,7 @@ function Payment() {
   function handleChangeDelivery() {
     if (delivery == false) {
       setDelivery(true)
-      setSelfPickUp(false)
     } 
-  }
-  function handleChangeSelfPickup() {
-    if (selfPickUp == false)
-    setDelivery(false)
-    setSelfPickUp(true)
   }
 
   async function postOrder(e) {
@@ -33,31 +25,14 @@ function Payment() {
           cartItems,
           totalAmount,
           delivery,
-          selfPickUp,
           address
       }
       await axios.post("http://localhost:3000/order/submitOrder", orderData)
       .then(response => {
-        if (response.status == 200) {
+        if (response.status == 201) {
           return (window.location.href = "http://localhost:5173/orderCompleted");
         }
       })
-    }
-
-    if (selfPickUp == true) {
-      let orderData = {
-        cartItems,
-        totalAmount,
-        delivery,
-        selfPickUp,
-        location: locationOpt
-    }
-    await axios.post("http://localhost:3000/order/submitOrder", orderData)
-    .then(response => {
-      if (response.status == 201) {
-        return (window.location.href = "http://localhost:5173/orderCompleted");
-      }
-    })
     }
     } catch (error) {
       console.log(error);
@@ -81,20 +56,9 @@ function Payment() {
         <br />
         <input type="radio" id="delivery" name="deliveryMethod" onChange={handleChangeDelivery} value={delivery == false} required/>
         <span>Delivery</span>
-        <input type="radio" id="selfPickup" name="deliveryMethod" onChange={handleChangeSelfPickup} value={selfPickUp == false}/>
-        <span>Self Pickup</span>
         {delivery && (
         <div>
           <input type="text" placeholder="Address" onChange={(e) => setAddress(e.target.value)} defaultValue={address} className="bg-[#D9D9D9] rounded-md border-2 border-black p-2 m-1" required/>
-        </div>
-        )}
-        {selfPickUp && (
-        <div>
-          <select name="locations" id="locations" onChange={(e) => setLocationOpt(e.target.value)} defaultValue={locationOpt} className="bg-[#D9D9D9] rounded-md border-2 border-black p-2 m-1">
-            <option value="location 1">location 1</option>
-            <option value="location 2">location 2</option>
-            <option value="location 3">location 3</option>
-          </select>
         </div>
         )}
         <div className="mt-5">
