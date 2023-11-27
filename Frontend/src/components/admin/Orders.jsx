@@ -8,6 +8,13 @@ function Orders() {
   if (isLoading) {
     return <p>Loading...</p>;
   }
+  if (orderData.length == 0) {
+    return (
+      <div className="w-[22.5rem]">
+        <div className="text-3xl">No Orders</div>
+      </div>
+    );
+  }
   return (
     <div className="order-list-container">
       <div className="order-list flex-col">
