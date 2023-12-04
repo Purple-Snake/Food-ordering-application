@@ -80,7 +80,7 @@ function Login() {
       </div>
 
         <div
-          className={`error-panel w-1/4 max-md:w-2/4 top-0 left-20 p-5 rounded-md absolute ${
+          className={`error-panel w-96 max-md:w-8/12 top-0 left-20 p-5 rounded-md absolute ${
             errorPanel ? "active" : ""}`}>
             {errorMessage}
         </div>
